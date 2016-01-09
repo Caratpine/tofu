@@ -5,7 +5,6 @@ import db
 import sys
 import json
 from tags import Movie_tags
-from tag_list import tag_list
 
 reload(sys)
 sys.setdefaultencoding('utf-8')
