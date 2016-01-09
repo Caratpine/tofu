@@ -39,5 +39,34 @@ def insert_tag():
     db.insert_tags(tag_list)
 
 
+def filter_movie():
+    movie_id = list()
+    movie_list = list()
+    movie_tag = list()
+    with open('tag_list.json', 'rb') as f:
+        tags = json.loads(f.read())
+
+    for val in Movie_tags:
+        with open('movies/movie_' + val + '.json', 'rb') as f:
+            movie = json.loads(f.read())
+            for m in movie:
+                if m['id'] not in movie_id:
+                    movie_id.append(m['id'])
+                    tag = m['tags'].strip().split('/')
+                    movie_list.append([m['id'], m['name'], m['star'], m['url']])
+                    for t in tag:
+                        tag_id = tags.index(t.strip()) + 1
+                        movie_tag.append([m['id'], tag_id])
+
+    print len(movie_id)
+
+    with open('movie_list.json', 'wb') as f:
+        f.write(json.dumps(movie_list))
+
+    with open('movie_tag', 'wb') as f:
+        f.write(json.dumps(movie_tag))
+
+
+
 if __name__ == '__main__':
-    insert_tag()
+    filter_movie()

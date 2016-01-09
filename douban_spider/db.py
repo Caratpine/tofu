@@ -45,7 +45,7 @@ def execute_sqls(sql, args=None):
 
 
 def insert_movies(args):
-    sql = "INSERT INTO movies (movie_id, name, star, tag_id, image_url) \
+    sql = "INSERT INTO movies (movie_id, name, star, image_url) \
      VALUES (%s, %s, %s, %s, %s)"
 
     return execute_sqls(sql, args)
