@@ -22,13 +22,13 @@ def post(id):
     if current_user.postfollow.filter_by(post_id = id).first() is not None:
         flag = 0
     else:
-        flag = 1    
+        flag = 1
     return render_template('post.html', posts=[post], form=form,comments=comments, id = id,flag = flag,pagination=pagination)
     #return render_template('post.html',posts = [post],id = id,flag = flag,form = form)
 
 @main.route('/user/<key>')
 @login_required
-def user(key):		
+def user(key):
     user = User.query.filter_by(username=key).first()
     if user is None:
     	abort(404)
@@ -37,7 +37,7 @@ def user(key):
     posts = pagination.items
     return render_template('user.html', user=user, postfollows=posts,pagination=pagination,username=key)
 
-#    posts = user.posts.order_by(Post.timestamp.desc()).all()	
+#    posts = user.posts.order_by(Post.timestamp.desc()).all()
   #  return render_template('user.html', user=user,posts = posts)
 
 @main.route('/',methods=['GET','POST'])
@@ -45,13 +45,14 @@ def index():
 	form = SearchForm()
 	if form.validate_on_submit():
 		return redirect(url_for('.search',key = form.key.data))
-#page divided		
+#page divided
 	page = request.args.get('page', 1, type=int)
 	#current_app.config['FLASKY_POSTS_PER_PAGE']
     	pagination = Post.query.order_by(Post.timestamp.desc()).paginate(page, per_page=5,error_out=False)
     	posts = pagination.items
-    	return render_template('index.html', form=form, posts=posts,pagination=pagination)
-	
+    	# return render_template('index.html', form=form, posts=posts,pagination=pagination)
+        return render_template('index.html')
+
 #	posts = Post.query.order_by(Post.timestamp.desc()).all()
  #   	return render_template('index.html', form=form, posts=posts)
 
@@ -117,8 +118,8 @@ def collect(id):
             flash('You are collect this post.')
             return redirect(url_for('.post',id = id,flag = 0))
     else:
-            flash("you have already collect this post.") 
-            return redirect(url_for('.post',id = id,flag = 0)) 
+            flash("you have already collect this post.")
+            return redirect(url_for('.post',id = id,flag = 0))
 
 @main.route('/uncollect/<int:id>')
 @login_required
@@ -131,8 +132,8 @@ def uncollect(id):
             pf = current_user.postfollow.filter_by(post_id = id).first()
             db.session.delete(pf)
             db.session.commit()
-            flash('You are not collect post anymore.') 
+            flash('You are not collect post anymore.')
             return redirect(url_for('.post',id = id,flag = 1))
         else:
-           flash("You are not collect the post.") 
+           flash("You are not collect the post.")
            return redirect(url_for('.post',id = id,flag =1))
