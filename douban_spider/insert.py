@@ -66,7 +66,38 @@ def filter_movie():
     with open('movie_tag', 'wb') as f:
         f.write(json.dumps(movie_tag))
 
+def insert_movie():
+    with open('movie_list.json', 'rb') as f:
+        movie = json.loads(f.read())
+
+    movie_list = list()
+    for val in movie:
+        id = val[0]
+        name = val[1]
+        star = '%.1f' % val[2]
+        url = val[3]
+        movie_tuple = (id, name, star, url)
+        print movie_tuple
+        movie_list.append(movie_tuple)
+
+    print len(movie_list)
+    db.insert_movies(movie_list)
+
+
+def insert_movie_tag():
+    with open('movie_tag', 'rb') as f:
+        movie_tag = json.loads(f.read())
+
+    movie_tag_list = list()
+    for val in movie_tag:
+        movie_tag_tuple = (val[0], val[1])
+        movie_tag_list.append(movie_tag_tuple)
+
+    db.insert_movie_tags(movie_tag_list)
 
 
 if __name__ == '__main__':
-    filter_movie()
+    # filter_movie()
+    # insert_movie()
+    insert_tag()
+    insert_movie_tag()
