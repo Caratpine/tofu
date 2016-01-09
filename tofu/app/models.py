@@ -15,6 +15,7 @@ class Follow(db.Model):
 
 class PostFollow(db.Model):
     __tablename__ = 'postfollow'
+    id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer,db.ForeignKey('users.id'),primary_key = True)
     post_id = db.Column(db.Integer,db.ForeignKey('posts.id'),primary_key = True)
     timestamp = db.Column(db.DateTime, default=datetime.utcnow)
@@ -45,6 +46,20 @@ class Post(db.Model):
     author_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     postfollow = db.relationship('PostFollow',backref='posts')
     comments = db.relationship('Comment', backref='post', lazy='dynamic')
+
+
+class Movie(db.Model):
+    __tablename__ = 'movies'
+    id = db.Column(db.Integer, primary_key=True)
+    movie_id = db.Column(db.String(64))
+    star = db.Column(db.Float())
+    tags = db.Column(db.String(64))
+    image_url = db.Column(db.String(128))
+
+class Tag(db.Model):
+    __tablename__ = 'tags'
+    id = db.Column(db.Integer, primary_key=True)
+    tag_name = db.Column(db.String(64))
 
 
 class User(UserMixin, db.Model):
