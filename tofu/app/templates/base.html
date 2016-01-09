@@ -10,34 +10,118 @@
 {% endblock %}
 
 {% block navbar %}
-<div class="navbar navbar-inverse "  role="navigation">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="{{ url_for('main.index') }}">豆瓣</a>
+    <header class="navbar navbar-bright navbar-fixed-top" role="banner">
+        <!--导航栏-->
+        <div class="container">
+            <div class="navbar-header">
+                <!--首页button-->
+                <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">
+                        codefrom
+                    </span>
+                    <span class="icon-bar">
+                    </span>
+                    <span class="icon-bar">
+                    </span>
+                    <span class="icon-bar">
+                    </span>
+                </button>
+                <a href="https://www.baidu.com/" class="navbar-brand">
+                    首页
+                </a>
+            </div>
+            <nav class="collapse navbar-collapse" role="navigation">
+                <!--首页后续标签-->
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="http://www.codefrom.com/">
+                            读书
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://project.codefrom.com/">
+                            电影
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://www.codefrom.com/topics">
+                            个人中心
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://xinzhi.codefrom.com/about.php">
+                            关于&amp;更新
+                        </a>
+                    </li>
+                </ul>
+                <!--下拉-->
+                <ul class="nav navbar-nav navbar-right hidden-sm">
+                    <li class="dropdown">
+                        <a href="http://xinzhi.codefrom.com/?m=type&amp;type=python#" class="dropdown-toggle"
+                        data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            罗肖
+                            <span class="caret">
+                            </span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="http://xinzhi.codefrom.com/?m=myPaper">
+                                    我收藏的书籍
+                                </a>
+                            </li>
+                            <li>
+                                <a href="http://xinzhi.codefrom.com/?m=mySite">
+                                    我收藏的电影
+                                </a>
+                            </li>
+                            <li>
+                                <a href="http://www.codefrom.com/user/account">
+                                    个人设置
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="http://xinzhi.codefrom.com/?m=logout">
+                            退出
+                        </a>
+                    </li>
+                </ul>
+            </nav>
         </div>
-        <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                <li><a href="{{ url_for('main.index') }}">首页</a></li>
-                {% if current_user.is_authenticated %}
-                <li><a href="{{ url_for('main.user', key=current_user.username) }}">个人中心</a></li>
-                {% endif %}
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                {% if current_user.is_authenticated %}
-                <li><a href="{{ url_for('auth.logout') }}">Log Out</a></li>
-                {% else %}
-                <li><a href="{{ url_for('auth.login') }}">Log In</a></li>
-                {% endif %}
-            </ul>
+        <!--首页BUTTON-->
+    </header>
+    <script src="../static/js/hm.js">
+    </script>
+    <script>
+        var _hmt = _hmt || []; (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?53ccfdbe62119c58a7964ba3bda8ec00";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    <div id="masthead">
+        <!--豆腐内容-->
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h1>
+                        豆腐
+                    </h1>
+                </div>
+                <!-- <div class="col-md-8">
+                <div class="demaxiya">
+                <form action="http://www.douban.com/search" method="get">
+                <span class="inp"><input type="text" maxlength="60" size="12"  placeholder="书籍、电影" style="font-size:20px" name="q" autocomplete="off"></span>
+                <span class="bn"><input type="submit" value="豆腐一下"></span>
+                </form>
+                </div>
+                </div>
+                -->
+            </div>
         </div>
     </div>
-</div>
 {% endblock %}
 
 {% block content %}
