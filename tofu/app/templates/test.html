@@ -1,138 +1,136 @@
-<!-- <p></p>
-<!DOCTYPE html> -->
-<!-- saved from url=(0046)http://xinzhi.codefrom.com/?m=type&type=python-->
-<html lang="en">
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <meta charset="utf-8">
-        <title>
-            首页
-        </title>
-        <meta name="generator" content="每天更新最新的技术干货文章">
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-        <link href="../static/css/bootstrap.min.css" rel="stylesheet">
-        <link href="../static/css/font-awesome.min.css" rel="stylesheet">
-        <!--[if lt IE 9]>
-            <script src="//html5shim.googlecode.com/svn/trunk/html5.js">
-            </script>
-        <![endif]-->
-        <link href="../static/css/styles.php" rel="stylesheet">
-    </head>
-    <body>
-        <header class="navbar navbar-bright navbar-fixed-top" role="banner">
-            <!--导航栏-->
-            <div class="container">
-                <div class="navbar-header">
-                    <!--首页button-->
-                    <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="sr-only">
-                            codefrom
-                        </span>
-                        <span class="icon-bar">
-                        </span>
-                        <span class="icon-bar">
-                        </span>
-                        <span class="icon-bar">
-                        </span>
-                    </button>
-                    <a href="https://www.baidu.com/" class="navbar-brand">
-                        首页
-                    </a>
-                </div>
-                <nav class="collapse navbar-collapse" role="navigation">
-                    <!--首页后续标签-->
-                    <ul class="nav navbar-nav">
-                        <li>
-                            <a href="http://www.codefrom.com/">
-                                读书
-                            </a>
-                        </li>
-                        <li>
-                            <a href="http://project.codefrom.com/">
-                                电影
-                            </a>
-                        </li>
-                        <li>
-                            <a href="http://www.codefrom.com/topics">
-                                个人中心
-                            </a>
-                        </li>
-                        <li>
-                            <a href="http://xinzhi.codefrom.com/about.php">
-                                关于&amp;更新
-                            </a>
-                        </li>
-                    </ul>
-                    <!--下拉-->
-                    <ul class="nav navbar-nav navbar-right hidden-sm">
-                        <li class="dropdown">
-                            <a href="http://xinzhi.codefrom.com/?m=type&amp;type=python#" class="dropdown-toggle"
-                            data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                罗肖
-                                <span class="caret">
-                                </span>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <a href="http://xinzhi.codefrom.com/?m=myPaper">
-                                        我收藏的书籍
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="http://xinzhi.codefrom.com/?m=mySite">
-                                        我收藏的电影
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="http://www.codefrom.com/user/account">
-                                        个人设置
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="http://xinzhi.codefrom.com/?m=logout">
-                                退出
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-            <!--首页BUTTON-->
-        </header>
-        <script src="../static/js/hm.js">
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% import "_macros.html" as macros %}
+
+{% block title %}豆腐{% endblock %}
+{% block header %}
+    {{ super() }}
+    <link href="../static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../static/css/font-awesome.min.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+        <script src="//html5shim.googlecode.com/svn/trunk/html5.js">
         </script>
-        <script>
-            var _hmt = _hmt || []; (function() {
-                var hm = document.createElement("script");
-                hm.src = "//hm.baidu.com/hm.js?53ccfdbe62119c58a7964ba3bda8ec00";
-                var s = document.getElementsByTagName("script")[0];
-                s.parentNode.insertBefore(hm, s);
-            })();
-        </script>
-        <div id="masthead">
-            <!--豆腐内容-->
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-4">
-                        <h1>
-                            豆腐
-                        </h1>
-                    </div>
-                    <!-- <div class="col-md-8">
-                    <div class="demaxiya">
-                    <form action="http://www.douban.com/search" method="get">
-                    <span class="inp"><input type="text" maxlength="60" size="12"  placeholder="书籍、电影" style="font-size:20px" name="q" autocomplete="off"></span>
-                    <span class="bn"><input type="submit" value="豆腐一下"></span>
-                    </form>
-                    </div>
-                    </div>
-                    -->
-                </div>
+    <![endif]-->
+    <link href="../static/css/styles.php" rel="stylesheet">
+{% endblock %}
+
+{% block navbar %}
+    <header class="navbar navbar-bright navbar-fixed-top" role="banner">
+        <!--导航栏-->
+        <div class="container">
+            <div class="navbar-header">
+                <!--首页button-->
+                <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">
+                        codefrom
+                    </span>
+                    <span class="icon-bar">
+                    </span>
+                    <span class="icon-bar">
+                    </span>
+                    <span class="icon-bar">
+                    </span>
+                </button>
+                <a href="https://www.baidu.com/" class="navbar-brand">
+                    首页
+                </a>
             </div>
+            <nav class="collapse navbar-collapse" role="navigation">
+                <!--首页后续标签-->
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="http://www.codefrom.com/">
+                            读书
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://project.codefrom.com/">
+                            电影
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://www.codefrom.com/topics">
+                            个人中心
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://xinzhi.codefrom.com/about.php">
+                            关于&amp;更新
+                        </a>
+                    </li>
+                </ul>
+                <!--下拉-->
+                <ul class="nav navbar-nav navbar-right hidden-sm">
+                    <li class="dropdown">
+                        <a href="http://xinzhi.codefrom.com/?m=type&amp;type=python#" class="dropdown-toggle"
+                        data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            罗肖
+                            <span class="caret">
+                            </span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="http://xinzhi.codefrom.com/?m=myPaper">
+                                    我收藏的书籍
+                                </a>
+                            </li>
+                            <li>
+                                <a href="http://xinzhi.codefrom.com/?m=mySite">
+                                    我收藏的电影
+                                </a>
+                            </li>
+                            <li>
+                                <a href="http://www.codefrom.com/user/account">
+                                    个人设置
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="http://xinzhi.codefrom.com/?m=logout">
+                            退出
+                        </a>
+                    </li>
+                </ul>
+            </nav>
         </div>
+        <!--首页BUTTON-->
+    </header>
+    <script src="../static/js/hm.js">
+    </script>
+    <script>
+        var _hmt = _hmt || []; (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?53ccfdbe62119c58a7964ba3bda8ec00";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    <div id="masthead">
+        <!--豆腐内容-->
         <div class="container">
             <div class="row">
+                <div class="col-md-4">
+                    <h1>
+                        豆腐
+                    </h1>
+                </div>
+                <!-- <div class="col-md-8">
+                <div class="demaxiya">
+                <form action="http://www.douban.com/search" method="get">
+                <span class="inp"><input type="text" maxlength="60" size="12"  placeholder="书籍、电影" style="font-size:20px" name="q" autocomplete="off"></span>
+                <span class="bn"><input type="submit" value="豆腐一下"></span>
+                </form>
+                </div>
+                </div>
+                -->
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block page_content %}
+    <div class="row">
                 <div class="col-md-9">
                     <div class="panel">
                         <div class="panel-body">
@@ -561,39 +559,10 @@
                         </p>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="container" id="footer">
-            <div class="row">
-                <div class="col col-sm-12">
-                </div>
-            </div>
-        </div>
-        <hr>
-        <hr>
-        <footer>
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-6">
-                        <img alt="码源微信" src="../static/image/weixin.jpg" style="width:80px;height:80px">
-                        <ul class="list-inline">
-                            <!-- <li><i class="icon-facebook icon-2x"></i></li>
-                            <li><i class="icon-twitter icon-2x"></i></li>
-                            <li><i class="icon-google-plus icon-2x"></i></li>
-                            <li><i class="icon-pinterest icon-2x"></i></li>
-                            -->
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </footer>
-        <!-- script references -->
-        <script src="../static/js/jquery.min.js">
-        </script>
-        <script src="../static/js/bootstrap.min.js">
-        </script>
-        <script src="../static/js/xinzhi.js">
-        </script>
-    </body>
+    </div>
+{% endblock %}
 
-</html>
+{% block scripts %}
+    {{ super() }}
+    <script src="../static/js/xinzhi.js"></script>
+{% endblock %}
