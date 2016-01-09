@@ -5,6 +5,7 @@ from .. import db
 from ..models import User,Post,PostFollow,Follow,Comment
 from .forms import PostForm,SearchForm,CommentForm
 
+
 @main.route('/post/<int:id>',methods=['GET','POST'])
 @login_required
 def post(id):
@@ -26,6 +27,7 @@ def post(id):
     return render_template('post.html', posts=[post], form=form,comments=comments, id = id,flag = flag,pagination=pagination)
     #return render_template('post.html',posts = [post],id = id,flag = flag,form = form)
 
+
 @main.route('/user/<key>')
 @login_required
 def user(key):
@@ -37,15 +39,15 @@ def user(key):
     posts = pagination.items
     return render_template('user.html', user=user, postfollows=posts,pagination=pagination,username=key)
 
-#    posts = user.posts.order_by(Post.timestamp.desc()).all()
-  #  return render_template('user.html', user=user,posts = posts)
+    # posts = user.posts.order_by(Post.timestamp.desc()).all()
+    # return render_template('user.html', user=user,posts = posts)
+
 
 @main.route('/',methods=['GET','POST'])
 def index():
 	form = SearchForm()
 	if form.validate_on_submit():
 		return redirect(url_for('.search',key = form.key.data))
-#page divided
 	page = request.args.get('page', 1, type=int)
 	#current_app.config['FLASKY_POSTS_PER_PAGE']
     	pagination = Post.query.order_by(Post.timestamp.desc()).paginate(page, per_page=5,error_out=False)
@@ -53,8 +55,8 @@ def index():
     	# return render_template('index.html', form=form, posts=posts,pagination=pagination)
         return render_template('index.html')
 
-#	posts = Post.query.order_by(Post.timestamp.desc()).all()
- #   	return render_template('index.html', form=form, posts=posts)
+    posts = Post.query.order_by(Post.timestamp.desc()).all()
+    return render_template('index.html', form=form, posts=posts)
 
 @main.route('/search/<key>',methods=['GET','POST'])
 def search(key):
