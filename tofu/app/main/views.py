@@ -5,9 +5,11 @@ from .. import db
 from ..models import User,Post,PostFollow,Follow,Comment,Movie,MovieTag,Tag
 from .forms import PostForm,SearchForm,CommentForm
 
+
 @main.route('/movies/<id>')
-def  moviepage(id):    
+def moviepage(id):
     return render_template('moviepage.html')
+
 
 @main.route('/post/<int:id>',methods=['GET','POST'])
 @login_required
@@ -58,7 +60,7 @@ def tags(id):
     page = request.args.get('page', 1, type=int)
     pagination = MovieTag.query.order_by(MovieTag.id.asc()).filter_by(tag_id=id).paginate(page, per_page=5,error_out=False)
     movietags = pagination.items
-    return render_template('tags.html',movietags = movietags,pagination=pagination,tag = tag)        
+    return render_template('tags.html',movietags = movietags,pagination=pagination,tag = tag)
 
 
 @main.route('/search/<key>',methods=['GET','POST'])
@@ -125,6 +127,7 @@ def collect(id):
     else:
             flash("you have already collect this post.")
             return redirect(url_for('.post',id = id,flag = 0))
+
 
 @main.route('/uncollect/<int:id>')
 @login_required

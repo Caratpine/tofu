@@ -1,10 +1,17 @@
 #!usr/bin/env python
 # coding=UTF-8
+"""
+    @author: Corazon(Peibo Xu)
+    @date: 2016-01-09
+    @desc:
+        insert movies data
+"""
 
 import db
 import sys
 import json
 from tags import Movie_tags
+import MySQLdb
 
 reload(sys)
 sys.setdefaultencoding('utf-8')
@@ -95,8 +102,23 @@ def insert_movie_tag():
     db.insert_movie_tags(movie_tag_list)
 
 
+def select_specified_tags():
+    db = MySQLdb.connect("localhost", "root", "root", "tofu", charset="utf8")
+    cursor = db.cursor()
+    for i, val in enumerate(Movie_tags):
+        sql = "SELECT * FROM tags WHERE tag_name = '%s'" % (val)
+        try:
+            cursor.execute(sql)
+            results = cursor.fetchall()
+            for row in results:
+                id = row[0]
+                name = row[1]
+                print i, id, name
+        except Exception, e:
+            print "%s" % str(e)
+
 if __name__ == '__main__':
-    # filter_movie()
-    # insert_movie()
+    insert_movie()
     insert_tag()
     insert_movie_tag()
+    select_specified_tags()

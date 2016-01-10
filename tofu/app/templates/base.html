@@ -58,7 +58,7 @@
             <ul class="nav navbar-nav navbar-right hidden-sm">
             {% if current_user.is_authenticated %}
                 <li class="dropdown">
-                    <a href="http://xinzhi.codefrom.com/?m=type&amp;type=python#" class="dropdown-toggle"
+                    <a href="#" class="dropdown-toggle"
                     data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                         {{ current_user.username }}
                         <span class="caret">
@@ -128,7 +128,6 @@
     {% endfor %}
 
     {% block page_content %}
-    <!--左侧主体-->
     <div class="col-md-3" class="youce">
         <!--右侧导航-->
         <hr>
@@ -137,182 +136,182 @@
         </h3>
         <hr>
         <div class="movietab">
-            <a href="#">
+            <a href="{{ url_for('main.tags', id=3) }}">
                 <button type="button" class="btn btn-default xinzhi-home-tag">
                     爱情
                 </button>
             </a>
-            <a href="#">
+            <a href="{{ url_for('main.tags', id=2) }}">
                 <button type="button" class="btn btn-default xinzhi-home-tag">
                     喜剧
                 </button>
             </a>
-            <a href="#">
+            <a href="{{ url_for('main.tags', id=87) }}">
                 <button type="button" class="btn btn-default xinzhi-home-tag">
                     动画
                 </button>
             </a>
-            <a href="#">
+            <a href="{{ url_for('main.tags', id=21) }}">
                 <button type="button" class="btn btn-default xinzhi-home-tag">
                     剧情
                 </button>
             </a>
-            <a href="#">
+            <a href="{{ url_for('main.tags', id=86) }}">
                 <button type="button" class="btn btn-default xinzhi-home-tag">
                     科幻
                 </button>
             </a>
-            <a href="#">
+            <a href="{{ url_for('main.tags', id=47) }}">
                 <button type="button" class="btn btn-default xinzhi-home-tag">
                     动作
                 </button>
             </a>
-            <a href="#">
+            <a href="{{ url_for('main.tags', id=531) }}">
                 <button type="button" class="btn btn-default xinzhi-home-tag">
                     经典
                 </button>
             </a>
-            <a href="#">
+            <a href="{{ url_for('main.tags', id=34) }}">
                 <button type="button" class="btn btn-default xinzhi-home-tag">
                     悬疑
                 </button>
             </a>
-            <a href="#">
+            <a href="{{ url_for('main.tags', id=531) }}">
                 <button type="button" class="btn btn-default xinzhi-home-tag">
                     青春
                 </button>
             </a>
-            <a href="#">
+            <a href="{{ url_for('main.tags', id=33) }}">
                 <button type="button" class="btn btn-default xinzhi-home-tag">
                     犯罪
                 </button>
             </a>
-            <a href="#">
+            <a href="{{ url_for('main.tags', id=151) }}">
                 <button type="button" class="btn btn-default xinzhi-home-tag">
                     惊悚
                 </button>
             </a>
-            <a href="#">
+            <a href="{{ url_for('main.tags', id=531) }}">
                 <button type="button" class="btn btn-default xinzhi-home-tag">
                     文艺
                 </button>
             </a>
-            <a href="#">
+            <a href="{{ url_for('main.tags', id=307) }}">
                 <button type="button" class="btn btn-default xinzhi-home-tag">
                     纪录片
                 </button>
             </a>
-            <a href="#">
+            <a href="{{ url_for('main.tags', id=531) }}">
                 <button type="button" class="btn btn-default xinzhi-home-tag">
                     搞笑
                 </button>
             </a>
-            <a href="#">
+            <a href="{{ url_for('main.tags', id=531) }}">
                 <button type="button" class="btn btn-default xinzhi-home-tag">
                     励志
                 </button>
             </a>
-            <a href="#">
+            <a href="{{ url_for('main.tags', id=1188) }}">
                 <button type="button" class="btn btn-default xinzhi-home-tag">
                     恐怖
                 </button>
             </a>
-            <a href="#">
+            <a href="{{ url_for('main.tags', id=94) }}">
                 <button type="button" class="btn btn-default xinzhi-home-tag">
                     战争
                 </button>
             </a>
-            <a href="#">
+            <a href="{{ url_for('main.tags', id=108) }}">
                 <button type="button" class="btn btn-default xinzhi-home-tag">
                     短片
                 </button>
             </a>
-            <a href="#">
+            <a href="{{ url_for('main.tags', id=531) }}">
                 <button type="button" class="btn btn-default xinzhi-home-tag">
                     魔幻
                 </button>
             </a>
-            <a href="#">
+            <a href="{{ url_for('main.tags', id=531) }}">
                 <button type="button" class="btn btn-default xinzhi-home-tag">
                     黑色幽默
                 </button>
             </a>
-            <a href="#">
+            <a href="{{ url_for('main.tags', id=244) }}">
                 <button type="button" class="btn btn-default xinzhi-home-tag">
                     传记
                 </button>
             </a>
-            <a href="#">
+            <a href="{{ url_for('main.tags', id=489) }}">
                 <button type="button" class="btn btn-default xinzhi-home-tag">
                     情色
                 </button>
             </a>
-            <a href="#">
+            <a href="{{ url_for('main.tags', id=531) }}">
                 <button type="button" class="btn btn-default xinzhi-home-tag">
                     动画短片
                 </button>
             </a>
-            <a href="#">
+            <a href="{{ url_for('main.tags', id=531) }}">
                 <button type="button" class="btn btn-default xinzhi-home-tag">
                     感人
                 </button>
             </a>
-            <a href="#">
+            <a href="{{ url_for('main.tags', id=531) }}">
                 <button type="button" class="btn btn-default xinzhi-home-tag">
                     暴力
                 </button>
             </a>
-            <a href="#">
+            <a href="{{ url_for('main.tags', id=297) }}">
                 <button type="button" class="btn btn-default xinzhi-home-tag">
                     音乐
                 </button>
             </a>
-            <a href="#">
+            <a href="{{ url_for('main.tags', id=41) }}">
                 <button type="button" class="btn btn-default xinzhi-home-tag">
                     家庭
                 </button>
             </a>
-            <a href="#">
+            <a href="{{ url_for('main.tags', id=531) }}">
                 <button type="button" class="btn btn-default xinzhi-home-tag">
                     童年
                 </button>
             </a>
-            <a href="#">
+            <a href="{{ url_for('main.tags', id=531) }}">
                 <button type="button" class="btn btn-default xinzhi-home-tag">
                     黑帮
                 </button>
             </a>
-            <a href="#">
+            <a href="{{ url_for('main.tags', id=531) }}">
                 <button type="button" class="btn btn-default xinzhi-home-tag">
                     浪漫
                 </button>
             </a>
-            <a href="#">
+            <a href="{{ url_for('main.tags', id=531) }}">
                 <button type="button" class="btn btn-default xinzhi-home-tag">
                     女性
                 </button>
             </a>
-            <a href="#">
+            <a href="{{ url_for('main.tags', id=531) }}">
                 <button type="button" class="btn btn-default xinzhi-home-tag">
                     同志
                 </button>
             </a>
-            <a href="#">
+            <a href="{{ url_for('main.tags', id=531) }}">
                 <button type="button" class="btn btn-default xinzhi-home-tag">
                     史诗
                 </button>
             </a>
-            <a href="#">
+            <a href="{{ url_for('main.tags', id=531) }}">
                 <button type="button" class="btn btn-default xinzhi-home-tag">
                     童话
                 </button>
             </a>
-            <a href="#">
+            <a href="{{ url_for('main.tags', id=531) }}">
                 <button type="button" class="btn btn-default xinzhi-home-tag">
                     烂片
                 </button>
             </a>
-            <a href="#">
+            <a href="{{ url_for('main.tags', id=531) }}">
                 <button type="button" class="btn btn-default xinzhi-home-tag">
                     cult
                 </button>
