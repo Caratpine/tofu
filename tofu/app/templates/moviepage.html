@@ -11,236 +11,400 @@
 {% endblock %}
 {% block page_content %}
 <div class="row">
-	<div class="col-md-9">
-		<div class="panel">
-			<div class="panel-body">
-		                          <hr>
-		                          <div class="row">
-			                          <div class="col-md-2 col-sm-3 text-center">
-			                          <!--左侧照片-->
-			                                     <a class="nbgnbg" href="http://movie.douban.com/subject/25823132/photos?type=R"
-			                                     title="点击看更多海报">
-			                                        <img src="{{ movietag.movies.image_url }}"
-			                                        title="点击看更多海报" onload="loadImg(this)" style="width: 100%; " alt="암살" rel="v:image">
-			                                     </a>
-			                          </div>
-		                                      <div class="col-md-10 col-sm-9">
-		                                      	<!--右侧信息-->
-		                                                   <h4 class="project-title"><a href="http://xinzhi.codefrom.com/?m=content&amp;pid=7271">八恶人 The Hateful Eight (2015)</a></h4>
-		                                      		<div class="row">
-			                                  		<div class="col-xs-12 col-md-8">
-				                                       <!--<div class="project-desc">描述</div>-->
-				                                       <div class="project-tags" style="background-color: #a6e1ec">
-				                                       </div>
-				                                       <div class="project-info">
-					                                       <div class="info">
-					                                                    <span><span class="pl">导演</span>: <span class="attrs"><a href="/celebrity/1054444/" rel="v:directedBy">昆汀·塔伦蒂诺</a></span></span><br>
-					                                                    <span><span class="pl">编剧</span>: <span class="attrs"><a href="/celebrity/1054444/">昆汀·塔伦蒂诺</a></span></span><br>
-					                                                    <span class="actor"><span class="pl">主演</span>: <span class="attrs"><span><a href="/celebrity/1054408/" rel="v:starring">塞缪尔·杰克逊</a> / </span><span><a href="/celebrity/1031814/" rel="v:starring">库尔特·拉塞尔</a> / </span><span><a href="/celebrity/1004588/" rel="v:starring">詹妮弗·杰森·李</a> / </span><span><a href="/celebrity/1098551/" rel="v:starring">沃尔顿·戈金斯</a> / </span><span><a href="/celebrity/1022762/" rel="v:starring">德米安·比齐尔</a> / </span><span style="display: none;"><a href="/celebrity/1025176/" rel="v:starring">蒂姆·罗斯</a> / </span><span style="display: none;"><a href="/celebrity/1027816/" rel="v:starring">迈克尔·马德森</a> / </span><span style="display: none;"><a href="/celebrity/1019069/" rel="v:starring">布鲁斯·邓恩</a> / </span><span style="display: none;"><a href="/celebrity/1136664/" rel="v:starring">詹姆士·帕克斯</a> / </span><span style="display: none;"><a href="/celebrity/1031224/" rel="v:starring">查宁·塔图姆</a> / </span><span style="display: none;"><a href="/celebrity/1338882/" rel="v:starring">丹娜·格瑞尔</a> / </span><span style="http://localhost:5000/moviedisplay: none;"><a href="/celebrity/1040579/" rel="v:starring">佐伊·贝尔</a> / </span><span style="display: none;"><a href="/celebrity/1092420/" rel="v:starring">李·霍斯利</a></span><a href="javascript:;" class="more-actor" title="更多主演">更多...</a></span></span><br>
-					                                                    <span class="pl">类型:</span> <span property="v:genre">剧情</span> / <span property="v:genre">喜剧</span> / <span property="v:genre">悬疑</span><br>
-					                                                    <span class="pl">官方网站:</span> <a href="http://thehatefuleight.com" rel="nofollow" target="_blank">thehatefuleight.com</a><br>
-					                                                    <span class="pl">制片国家/地区:</span> 美国<br>
-					                                                    <span class="pl">语言:</span> 英语<br>
-					                                                    <span class="pl">上映日期:</span> <span property="v:initialReleaseDate" content="2015-12-07(洛杉矶首映)">2015-12-07(洛杉矶首映)</span> / <span property="v:initialReleaseDate" content="2016-01-01(美国)">2016-01-01(美国)</span><br>
-					                                                    <span class="pl">片长:</span> <span property="v:runtime" content="168">168分钟(数字版)</span> / 182分钟(胶片版)<br>
-					                                                    <span class="pl">又名:</span> 可憎八人 / The H8ful Eight / The Hateful 8<br>
-					                                                    <span class="pl">IMDb链接:</span> <a href="http://www.imdb.com/title/tt3460252" target="_blank" rel="nofollow">tt3460252</a><br>
-
-					                                       </div>                                   
-				                                       </div>
-			                                       	</div>
-		                                   		</div>
-		                                	</div>
-	                              	</div>
-	                            	<hr>
-
-                        		</div>
-	                          <div class="row" class="fenye">
-	                          	<!--分页-->
-	                          	<div class="col-md-2">
-	                         		</div>
-	                          	<div class="col-md-2">
-	                            	</div>
-	                            	<div class="col-md-2">
-	                            	</div>
-	                            	<div class="col-md-4">
-	                            	</div>
-	                           
-	                          	<div class="col-md-1">
-	                          		
-	                          	</div>
-	                          </div>
-                    	</div>
-             </div>
-             <div class="col-md-3" class="youce">
-	             <!--右侧导航-->
-	             <hr>
-	             <h3>
-	                        电影分类
-	             </h3>
-	             <hr>
-                     	<div class="movietab">
-					<a href="http://xinzhi.codefrom.com/?m=type&amp;type=%E5%85%A8%E6%A0%88">
-					            <button type="button" class="btn btn-default xinzhi-home-tag">
-					                          热门
-					             </button>
-					</a>
-			                        <a href="http://xinzhi.codefrom.com/?m=type&amp;type=%E5%89%8D%E7%AB%AF">
-			                            <button type="button" class="btn btn-default xinzhi-home-tag">
-			                                最新
-			                            </button>
-			                        </a>
-			                        <a href="http://xinzhi.codefrom.com/?m=type&amp;type=android">
-			                            <button type="button" class="btn btn-default xinzhi-home-tag">
-			                                经典
-			                            </button>
-			                        </a>
-			                        <a href="http://xinzhi.codefrom.com/?m=type&amp;type=%E5%90%8E%E7%AB%AF">
-			                            <button type="button" class="btn btn-default xinzhi-home-tag">
-			                                高分
-			                            </button>
-			                        </a>
-			                        <a href="http://xinzhi.codefrom.com/?m=type&amp;type=%E5%AE%89%E5%85%A8">
-			                            <button type="button" class="btn btn-default xinzhi-home-tag">
-			                                华语
-			                            </button>
-			                        </a>
-			                        <a href="http://xinzhi.codefrom.com/?m=type&amp;type=javascript">
-			                            <button type="button" class="btn btn-default xinzhi-home-tag">
-			                                欧美
-			                            </button>
-			                        </a>
-			                        <a href="http://xinzhi.codefrom.com/?m=type&amp;type=iOS">
-			                            <button type="button" class="btn btn-default xinzhi-home-tag">
-			                                韩国
-			                            </button>
-			                        </a>
-			                        <a href="http://xinzhi.codefrom.com/?m=type&amp;type=%E8%AE%BE%E8%AE%A1">
-			                            <button type="button" class="btn btn-default xinzhi-home-tag">
-			                                日本
-			                            </button>
-			                        </a>
-			                        <a href="http://xinzhi.codefrom.com/?m=type&amp;type=linux">
-			                            <button type="button" class="btn btn-default xinzhi-home-tag">
-			                                动作
-			                            </button>
-			                        </a>
-			                        <a href="http://xinzhi.codefrom.com/?m=type&amp;type=java">
-			                            <button type="button" class="btn btn-default xinzhi-home-tag">
-			                                喜剧
-			                            </button>
-			                        </a>
-			                        <a href="http://xinzhi.codefrom.com/?m=type&amp;type=%E6%95%B0%E6%8D%AE%E5%BA%93">
-			                            <button type="button" class="btn btn-default xinzhi-home-tag">
-			                                爱情
-			                            </button>
-			                        </a>
-			                        <a href="http://xinzhi.codefrom.com/?m=type&amp;type=%E5%A4%A7%E6%95%B0%E6%8D%AE">
-			                            <button type="button" class="btn btn-default xinzhi-home-tag">
-			                                科幻
-			                            </button>
-			                        </a>
-			                        <a href="http://xinzhi.codefrom.com/?m=type&amp;type=docker">
-			                            <button type="button" class="btn btn-default xinzhi-home-tag">
-			                                悬疑
-			                            </button>
-			                        </a>
-			                        <a href="http://xinzhi.codefrom.com/?m=type&amp;type=python">
-			                            <button type="button" class="btn btn-default xinzhi-home-tag">
-			                                恐怖
-			                            </button>
-			                        </a>
-			                        <a href="http://xinzhi.codefrom.com/?m=type&amp;type=%E5%90%8E%E7%AB%AF%E6%8A%80%E6%9C%AF">
-			                            <button type="button" class="btn btn-default xinzhi-home-tag">
-			                                动画
-			                            </button>
-			                        </a>
-                          </div>
-                    	<br>
-                    	<br>
-                    	<h3>
-                        		热门书籍标签
-                    	</h3>
-                    	<hr>
-                    	<div class="booktab">
-	                        <a href="http://xinzhi.codefrom.com/?m=type&amp;type=%E5%85%A8%E6%A0%88">
-	                            <button type="button" class="btn btn-default xinzhi-home-tag">
-	                                小说
-	                            </button>
-	                        </a>
-	                        <a href="http://xinzhi.codefrom.com/?m=type&amp;type=%E5%89%8D%E7%AB%AF">
-	                            <button type="button" class="btn btn-default xinzhi-home-tag">
-	                                随笔
-	                            </button>
-	                        </a>
-	                        <a href="http://xinzhi.codefrom.com/?m=type&amp;type=android">
-	                            <button type="button" class="btn btn-default xinzhi-home-tag">
-	                                名著
-	                            </button>
-	                        </a>
-	                        <a href="http://xinzhi.codefrom.com/?m=type&amp;type=%E5%90%8E%E7%AB%AF">
-	                            <button type="button" class="btn btn-default xinzhi-home-tag">
-	                                推理
-	                            </button>
-	                        </a>
-	                        <a href="http://xinzhi.codefrom.com/?m=type&amp;type=%E5%AE%89%E5%85%A8">
-	                            <button type="button" class="btn btn-default xinzhi-home-tag">
-	                                青春
-	                            </button>
-	                        </a>
-	                        <a href="http://xinzhi.codefrom.com/?m=type&amp;type=javascript">
-	                            <button type="button" class="btn btn-default xinzhi-home-tag">
-	                                言情
-	                            </button>
-	                        </a>
-	                        <a href="http://xinzhi.codefrom.com/?m=type&amp;type=iOS">
-	                            <button type="button" class="btn btn-default xinzhi-home-tag">
-	                                科幻
-	                            </button>
-	                        </a>
-	                        <a href="http://xinzhi.codefrom.com/?m=type&amp;type=%E8%AE%BE%E8%AE%A1">
-	                            <button type="button" class="btn btn-default xinzhi-home-tag">
-	                                哲学
-	                            </button>
-	                        </a>
-	                        <a href="http://xinzhi.codefrom.com/?m=type&amp;type=linux">
-	                            <button type="button" class="btn btn-default xinzhi-home-tag">
-	                                传记
-	                            </button>
-	                        </a>
-	                        <a href="http://xinzhi.codefrom.com/?m=type&amp;type=java">
-	                            <button type="button" class="btn btn-default xinzhi-home-tag">
-	                                经济学
-	                            </button>
-	                        </a>
-	                        <a href="http://xinzhi.codefrom.com/?m=type&amp;type=%E6%95%B0%E6%8D%AE%E5%BA%93">
-	                            <button type="button" class="btn btn-default xinzhi-home-tag">
-	                                管理
-	                            </button>
-	                        </a>
-	                        <a href="http://xinzhi.codefrom.com/?m=type&amp;type=%E5%A4%A7%E6%95%B0%E6%8D%AE">
-	                            <button type="button" class="btn btn-default xinzhi-home-tag">
-	                                金融
-	                            </button>
-	                        </a>
-	                        <a href="http://xinzhi.codefrom.com/?m=type&amp;type=docker">
-	                            <button type="button" class="btn btn-default xinzhi-home-tag">
-	                                理财
-	                            </button>
-	                        </a>
-	                        <a href="http://xinzhi.codefrom.com/?m=type&amp;type=python">
-	                            <button type="button" class="btn btn-default xinzhi-home-tag">
-	                                互联网
-	                            </button>
-	                        </a>
-	                        <a href="http://xinzhi.codefrom.com/?m=type&amp;type=%E5%90%8E%E7%AB%AF%E6%8A%80%E6%9C%AF">
-	                            <button type="button" class="btn btn-default xinzhi-home-tag">
-	                                编程
-	                            </button>
-	                        </a>
-                    	</div>
-                    	<br>
-                    	
-             </div>
+    <div class="col-md-9">
+        <div class="panel">
+            <div class="panel-body">
+                <hr>
+                <div class="row">
+                    <div class="col-md-2 col-sm-3 text-center">
+                        <!--左侧照片-->
+                        <a class="nbgnbg" href="http://movie.douban.com/subject/25823132/photos?type=R"
+                        title="点击看更多海报">
+                            <img src="{{ movietag.movies.image_url }}" title="点击看更多海报" onload="loadImg(this)"
+                            style="width: 100%; " alt="암살" rel="v:image">
+                        </a>
+                    </div>
+                    <div class="col-md-10 col-sm-9">
+                        <!--右侧信息-->
+                        <h4 class="project-title">
+                            <a href="http://xinzhi.codefrom.com/?m=content&amp;pid=7271">
+                                八恶人 The Hateful Eight (2015)
+                            </a>
+                        </h4>
+                        <div class="row">
+                            <div class="col-xs-12 col-md-8">
+                                <!--<div class="project-desc">描述</div>-->
+                                <div class="project-tags" style="background-color: #a6e1ec">
+                                </div>
+                                <div class="project-info">
+                                    <div class="info">
+                                        <span>
+                                            <span class="pl">
+                                                导演
+                                            </span>
+                                            :
+                                            <span class="attrs">
+                                                <a href="/celebrity/1054444/" rel="v:directedBy">
+                                                    昆汀·塔伦蒂诺
+                                                </a>
+                                            </span>
+                                        </span>
+                                        <br>
+                                        <span>
+                                            <span class="pl">
+                                                编剧
+                                            </span>
+                                            :
+                                            <span class="attrs">
+                                                <a href="/celebrity/1054444/">
+                                                    昆汀·塔伦蒂诺
+                                                </a>
+                                            </span>
+                                        </span>
+                                        <br>
+                                        <span class="actor">
+                                            <span class="pl">
+                                                主演
+                                            </span>
+                                            :
+                                            <span class="attrs">
+                                                <span>
+                                                    <a href="/celebrity/1054408/" rel="v:starring">
+                                                        塞缪尔·杰克逊
+                                                    </a>
+                                                    /
+                                                </span>
+                                                <span>
+                                                    <a href="/celebrity/1031814/" rel="v:starring">
+                                                        库尔特·拉塞尔
+                                                    </a>
+                                                    /
+                                                </span>
+                                                <span>
+                                                    <a href="/celebrity/1004588/" rel="v:starring">
+                                                        詹妮弗·杰森·李
+                                                    </a>
+                                                    /
+                                                </span>
+                                                <span>
+                                                    <a href="/celebrity/1098551/" rel="v:starring">
+                                                        沃尔顿·戈金斯
+                                                    </a>
+                                                    /
+                                                </span>
+                                                <span>
+                                                    <a href="/celebrity/1022762/" rel="v:starring">
+                                                        德米安·比齐尔
+                                                    </a>
+                                                    /
+                                                </span>
+                                                <span style="display: none;">
+                                                    <a href="/celebrity/1025176/" rel="v:starring">
+                                                        蒂姆·罗斯
+                                                    </a>
+                                                    /
+                                                </span>
+                                                <span style="display: none;">
+                                                    <a href="/celebrity/1027816/" rel="v:starring">
+                                                        迈克尔·马德森
+                                                    </a>
+                                                    /
+                                                </span>
+                                                <span style="display: none;">
+                                                    <a href="/celebrity/1019069/" rel="v:starring">
+                                                        布鲁斯·邓恩
+                                                    </a>
+                                                    /
+                                                </span>
+                                                <span style="display: none;">
+                                                    <a href="/celebrity/1136664/" rel="v:starring">
+                                                        詹姆士·帕克斯
+                                                    </a>
+                                                    /
+                                                </span>
+                                                <span style="display: none;">
+                                                    <a href="/celebrity/1031224/" rel="v:starring">
+                                                        查宁·塔图姆
+                                                    </a>
+                                                    /
+                                                </span>
+                                                <span style="display: none;">
+                                                    <a href="/celebrity/1338882/" rel="v:starring">
+                                                        丹娜·格瑞尔
+                                                    </a>
+                                                    /
+                                                </span>
+                                                <span style="http://localhost:5000/moviedisplay: none;">
+                                                    <a href="/celebrity/1040579/" rel="v:starring">
+                                                        佐伊·贝尔
+                                                    </a>
+                                                    /
+                                                </span>
+                                                <span style="display: none;">
+                                                    <a href="/celebrity/1092420/" rel="v:starring">
+                                                        李·霍斯利
+                                                    </a>
+                                                </span>
+                                                <a href="javascript:;" class="more-actor" title="更多主演">
+                                                    更多...
+                                                </a>
+                                            </span>
+                                        </span>
+                                        <br>
+                                        <span class="pl">
+                                            类型:
+                                        </span>
+                                        <span property="v:genre">
+                                            剧情
+                                        </span>
+                                        /
+                                        <span property="v:genre">
+                                            喜剧
+                                        </span>
+                                        /
+                                        <span property="v:genre">
+                                            悬疑
+                                        </span>
+                                        <br>
+                                        <span class="pl">
+                                            官方网站:
+                                        </span>
+                                        <a href="http://thehatefuleight.com" rel="nofollow" target="_blank">
+                                            thehatefuleight.com
+                                        </a>
+                                        <br>
+                                        <span class="pl">
+                                            制片国家/地区:
+                                        </span>
+                                        美国
+                                        <br>
+                                        <span class="pl">
+                                            语言:
+                                        </span>
+                                        英语
+                                        <br>
+                                        <span class="pl">
+                                            上映日期:
+                                        </span>
+                                        <span property="v:initialReleaseDate" content="2015-12-07(洛杉矶首映)">
+                                            2015-12-07(洛杉矶首映)
+                                        </span>
+                                        /
+                                        <span property="v:initialReleaseDate" content="2016-01-01(美国)">
+                                            2016-01-01(美国)
+                                        </span>
+                                        <br>
+                                        <span class="pl">
+                                            片长:
+                                        </span>
+                                        <span property="v:runtime" content="168">
+                                            168分钟(数字版)
+                                        </span>
+                                        / 182分钟(胶片版)
+                                        <br>
+                                        <span class="pl">
+                                            又名:
+                                        </span>
+                                        可憎八人 / The H8ful Eight / The Hateful 8
+                                        <br>
+                                        <span class="pl">
+                                            IMDb链接:
+                                        </span>
+                                        <a href="http://www.imdb.com/title/tt3460252" target="_blank" rel="nofollow">
+                                            tt3460252
+                                        </a>
+                                        <br>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+            </div>
+            <div class="row" class="fenye">
+                <!--分页-->
+                <div class="col-md-2">
+                </div>
+                <div class="col-md-2">
+                </div>
+                <div class="col-md-2">
+                </div>
+                <div class="col-md-4">
+                </div>
+                <div class="col-md-1">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3" class="youce">
+        <!--右侧导航-->
+        <hr>
+        <h3>
+            电影分类
+        </h3>
+        <hr>
+        <div class="movietab">
+            <a href="http://xinzhi.codefrom.com/?m=type&amp;type=%E5%85%A8%E6%A0%88">
+                <button type="button" class="btn btn-default xinzhi-home-tag">
+                    热门
+                </button>
+            </a>
+            <a href="http://xinzhi.codefrom.com/?m=type&amp;type=%E5%89%8D%E7%AB%AF">
+                <button type="button" class="btn btn-default xinzhi-home-tag">
+                    最新
+                </button>
+            </a>
+            <a href="http://xinzhi.codefrom.com/?m=type&amp;type=android">
+                <button type="button" class="btn btn-default xinzhi-home-tag">
+                    经典
+                </button>
+            </a>
+            <a href="http://xinzhi.codefrom.com/?m=type&amp;type=%E5%90%8E%E7%AB%AF">
+                <button type="button" class="btn btn-default xinzhi-home-tag">
+                    高分
+                </button>
+            </a>
+            <a href="http://xinzhi.codefrom.com/?m=type&amp;type=%E5%AE%89%E5%85%A8">
+                <button type="button" class="btn btn-default xinzhi-home-tag">
+                    华语
+                </button>
+            </a>
+            <a href="http://xinzhi.codefrom.com/?m=type&amp;type=javascript">
+                <button type="button" class="btn btn-default xinzhi-home-tag">
+                    欧美
+                </button>
+            </a>
+            <a href="http://xinzhi.codefrom.com/?m=type&amp;type=iOS">
+                <button type="button" class="btn btn-default xinzhi-home-tag">
+                    韩国
+                </button>
+            </a>
+            <a href="http://xinzhi.codefrom.com/?m=type&amp;type=%E8%AE%BE%E8%AE%A1">
+                <button type="button" class="btn btn-default xinzhi-home-tag">
+                    日本
+                </button>
+            </a>
+            <a href="http://xinzhi.codefrom.com/?m=type&amp;type=linux">
+                <button type="button" class="btn btn-default xinzhi-home-tag">
+                    动作
+                </button>
+            </a>
+            <a href="http://xinzhi.codefrom.com/?m=type&amp;type=java">
+                <button type="button" class="btn btn-default xinzhi-home-tag">
+                    喜剧
+                </button>
+            </a>
+            <a href="http://xinzhi.codefrom.com/?m=type&amp;type=%E6%95%B0%E6%8D%AE%E5%BA%93">
+                <button type="button" class="btn btn-default xinzhi-home-tag">
+                    爱情
+                </button>
+            </a>
+            <a href="http://xinzhi.codefrom.com/?m=type&amp;type=%E5%A4%A7%E6%95%B0%E6%8D%AE">
+                <button type="button" class="btn btn-default xinzhi-home-tag">
+                    科幻
+                </button>
+            </a>
+            <a href="http://xinzhi.codefrom.com/?m=type&amp;type=docker">
+                <button type="button" class="btn btn-default xinzhi-home-tag">
+                    悬疑
+                </button>
+            </a>
+            <a href="http://xinzhi.codefrom.com/?m=type&amp;type=python">
+                <button type="button" class="btn btn-default xinzhi-home-tag">
+                    恐怖
+                </button>
+            </a>
+            <a href="http://xinzhi.codefrom.com/?m=type&amp;type=%E5%90%8E%E7%AB%AF%E6%8A%80%E6%9C%AF">
+                <button type="button" class="btn btn-default xinzhi-home-tag">
+                    动画
+                </button>
+            </a>
+        </div>
+        <br>
+        <br>
+        <h3>
+            热门书籍标签
+        </h3>
+        <hr>
+        <div class="booktab">
+            <a href="http://xinzhi.codefrom.com/?m=type&amp;type=%E5%85%A8%E6%A0%88">
+                <button type="button" class="btn btn-default xinzhi-home-tag">
+                    小说
+                </button>
+            </a>
+            <a href="http://xinzhi.codefrom.com/?m=type&amp;type=%E5%89%8D%E7%AB%AF">
+                <button type="button" class="btn btn-default xinzhi-home-tag">
+                    随笔
+                </button>
+            </a>
+            <a href="http://xinzhi.codefrom.com/?m=type&amp;type=android">
+                <button type="button" class="btn btn-default xinzhi-home-tag">
+                    名著
+                </button>
+            </a>
+            <a href="http://xinzhi.codefrom.com/?m=type&amp;type=%E5%90%8E%E7%AB%AF">
+                <button type="button" class="btn btn-default xinzhi-home-tag">
+                    推理
+                </button>
+            </a>
+            <a href="http://xinzhi.codefrom.com/?m=type&amp;type=%E5%AE%89%E5%85%A8">
+                <button type="button" class="btn btn-default xinzhi-home-tag">
+                    青春
+                </button>
+            </a>
+            <a href="http://xinzhi.codefrom.com/?m=type&amp;type=javascript">
+                <button type="button" class="btn btn-default xinzhi-home-tag">
+                    言情
+                </button>
+            </a>
+            <a href="http://xinzhi.codefrom.com/?m=type&amp;type=iOS">
+                <button type="button" class="btn btn-default xinzhi-home-tag">
+                    科幻
+                </button>
+            </a>
+            <a href="http://xinzhi.codefrom.com/?m=type&amp;type=%E8%AE%BE%E8%AE%A1">
+                <button type="button" class="btn btn-default xinzhi-home-tag">
+                    哲学
+                </button>
+            </a>
+            <a href="http://xinzhi.codefrom.com/?m=type&amp;type=linux">
+                <button type="button" class="btn btn-default xinzhi-home-tag">
+                    传记
+                </button>
+            </a>
+            <a href="http://xinzhi.codefrom.com/?m=type&amp;type=java">
+                <button type="button" class="btn btn-default xinzhi-home-tag">
+                    经济学
+                </button>
+            </a>
+            <a href="http://xinzhi.codefrom.com/?m=type&amp;type=%E6%95%B0%E6%8D%AE%E5%BA%93">
+                <button type="button" class="btn btn-default xinzhi-home-tag">
+                    管理
+                </button>
+            </a>
+            <a href="http://xinzhi.codefrom.com/?m=type&amp;type=%E5%A4%A7%E6%95%B0%E6%8D%AE">
+                <button type="button" class="btn btn-default xinzhi-home-tag">
+                    金融
+                </button>
+            </a>
+            <a href="http://xinzhi.codefrom.com/?m=type&amp;type=docker">
+                <button type="button" class="btn btn-default xinzhi-home-tag">
+                    理财
+                </button>
+            </a>
+            <a href="http://xinzhi.codefrom.com/?m=type&amp;type=python">
+                <button type="button" class="btn btn-default xinzhi-home-tag">
+                    互联网
+                </button>
+            </a>
+            <a href="http://xinzhi.codefrom.com/?m=type&amp;type=%E5%90%8E%E7%AB%AF%E6%8A%80%E6%9C%AF">
+                <button type="button" class="btn btn-default xinzhi-home-tag">
+                    编程
+                </button>
+            </a>
+        </div>
+        <br>
+    </div>
 </div>
 {% endblock %}
