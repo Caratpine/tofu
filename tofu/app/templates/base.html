@@ -5,8 +5,8 @@
 
 {% block head %}
 {{ super() }}
-<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
-<link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.png') }}" type="image/x-icon">
+<link rel="icon" href="{{ url_for('static', filename='favicon.png') }}" type="image/x-icon">
 {% endblock %}
 
 {% block navbar %}
@@ -34,12 +34,12 @@
             <!--首页后续标签-->
             <ul class="nav navbar-nav">
                 <li>
-                    <a href="http://www.codefrom.com/">
+                    <a href="#">
                         读书
                     </a>
                 </li>
                 <li>
-                    <a href="http://project.codefrom.com/">
+                    <a href="#">
                         电影
                     </a>
                 </li>
@@ -49,14 +49,14 @@
                     </a>
                 </li>
                 <li>
-                    <a href="http://xinzhi.codefrom.com/about.php">
-                        关于&amp;更新
+                    <a href="#">
+                        关于
                     </a>
                 </li>
             </ul>
             <!--下拉-->
             <ul class="nav navbar-nav navbar-right hidden-sm">
-            {% if current_user.is_authenticated %}                
+            {% if current_user.is_authenticated %}
                 <li class="dropdown">
                     <a href="http://xinzhi.codefrom.com/?m=type&amp;type=python#" class="dropdown-toggle"
                     data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
@@ -66,17 +66,17 @@
                     </a>
                     <ul class="dropdown-menu">
                         <li>
-                            <a href="http://xinzhi.codefrom.com/?m=myPaper">
+                            <a href="#">
                                 我收藏的书籍
                             </a>
                         </li>
                         <li>
-                            <a href="http://xinzhi.codefrom.com/?m=mySite">
+                            <a href="#">
                                 我收藏的电影
                             </a>
                         </li>
                         <li>
-                            <a href="http://www.codefrom.com/user/account">
+                            <a href="#">
                                 个人设置
                             </a>
                         </li>
@@ -88,7 +88,7 @@
                     </a>
                 </li>
               {% else %}
-                <li><a href="{{ url_for('auth.login') }}">登陆</a></li>
+                <li><a href="{{ url_for('auth.login') }}">登录</a></li>
               {% endif %}
             </ul>
         </nav>
@@ -137,79 +137,184 @@
         </h3>
         <hr>
         <div class="movietab">
-            <a href="http://xinzhi.codefrom.com/?m=type&amp;type=%E5%85%A8%E6%A0%88">
-                <button type="button" class="btn btn-default xinzhi-home-tag">
-                    热门
-                </button>
-            </a>
-            <a href="http://xinzhi.codefrom.com/?m=type&amp;type=%E5%89%8D%E7%AB%AF">
-                <button type="button" class="btn btn-default xinzhi-home-tag">
-                    最新
-                </button>
-            </a>
-            <a href="http://xinzhi.codefrom.com/?m=type&amp;type=android">
-                <button type="button" class="btn btn-default xinzhi-home-tag">
-                    经典
-                </button>
-            </a>
-            <a href="http://xinzhi.codefrom.com/?m=type&amp;type=%E5%90%8E%E7%AB%AF">
-                <button type="button" class="btn btn-default xinzhi-home-tag">
-                    高分
-                </button>
-            </a>
-            <a href="http://xinzhi.codefrom.com/?m=type&amp;type=%E5%AE%89%E5%85%A8">
-                <button type="button" class="btn btn-default xinzhi-home-tag">
-                    华语
-                </button>
-            </a>
-            <a href="http://xinzhi.codefrom.com/?m=type&amp;type=javascript">
-                <button type="button" class="btn btn-default xinzhi-home-tag">
-                    欧美
-                </button>
-            </a>
-            <a href="韩国标签.html">
-                <button type="button" class="btn btn-default xinzhi-home-tag">
-                    韩国
-                </button>
-            </a>
-            <a href="http://xinzhi.codefrom.com/?m=type&amp;type=%E8%AE%BE%E8%AE%A1">
-                <button type="button" class="btn btn-default xinzhi-home-tag">
-                    日本
-                </button>
-            </a>
-            <a href="http://xinzhi.codefrom.com/?m=type&amp;type=linux">
-                <button type="button" class="btn btn-default xinzhi-home-tag">
-                    动作
-                </button>
-            </a>
-            <a href="http://xinzhi.codefrom.com/?m=type&amp;type=java">
-                <button type="button" class="btn btn-default xinzhi-home-tag">
-                    喜剧
-                </button>
-            </a>
-            <a href="http://xinzhi.codefrom.com/?m=type&amp;type=%E6%95%B0%E6%8D%AE%E5%BA%93">
+            <a href="#">
                 <button type="button" class="btn btn-default xinzhi-home-tag">
                     爱情
                 </button>
             </a>
-            <a href="http://xinzhi.codefrom.com/?m=type&amp;type=%E5%A4%A7%E6%95%B0%E6%8D%AE">
+            <a href="#">
+                <button type="button" class="btn btn-default xinzhi-home-tag">
+                    喜剧
+                </button>
+            </a>
+            <a href="#">
+                <button type="button" class="btn btn-default xinzhi-home-tag">
+                    动画
+                </button>
+            </a>
+            <a href="#">
+                <button type="button" class="btn btn-default xinzhi-home-tag">
+                    剧情
+                </button>
+            </a>
+            <a href="#">
                 <button type="button" class="btn btn-default xinzhi-home-tag">
                     科幻
                 </button>
             </a>
-            <a href="http://xinzhi.codefrom.com/?m=type&amp;type=docker">
+            <a href="#">
+                <button type="button" class="btn btn-default xinzhi-home-tag">
+                    动作
+                </button>
+            </a>
+            <a href="#">
+                <button type="button" class="btn btn-default xinzhi-home-tag">
+                    经典
+                </button>
+            </a>
+            <a href="#">
                 <button type="button" class="btn btn-default xinzhi-home-tag">
                     悬疑
                 </button>
             </a>
-            <a href="http://xinzhi.codefrom.com/?m=type&amp;type=python">
+            <a href="#">
+                <button type="button" class="btn btn-default xinzhi-home-tag">
+                    青春
+                </button>
+            </a>
+            <a href="#">
+                <button type="button" class="btn btn-default xinzhi-home-tag">
+                    犯罪
+                </button>
+            </a>
+            <a href="#">
+                <button type="button" class="btn btn-default xinzhi-home-tag">
+                    惊悚
+                </button>
+            </a>
+            <a href="#">
+                <button type="button" class="btn btn-default xinzhi-home-tag">
+                    文艺
+                </button>
+            </a>
+            <a href="#">
+                <button type="button" class="btn btn-default xinzhi-home-tag">
+                    纪录片
+                </button>
+            </a>
+            <a href="#">
+                <button type="button" class="btn btn-default xinzhi-home-tag">
+                    搞笑
+                </button>
+            </a>
+            <a href="#">
+                <button type="button" class="btn btn-default xinzhi-home-tag">
+                    励志
+                </button>
+            </a>
+            <a href="#">
                 <button type="button" class="btn btn-default xinzhi-home-tag">
                     恐怖
                 </button>
             </a>
-            <a href="http://xinzhi.codefrom.com/?m=type&amp;type=%E5%90%8E%E7%AB%AF%E6%8A%80%E6%9C%AF">
+            <a href="#">
                 <button type="button" class="btn btn-default xinzhi-home-tag">
-                    动画
+                    战争
+                </button>
+            </a>
+            <a href="#">
+                <button type="button" class="btn btn-default xinzhi-home-tag">
+                    短片
+                </button>
+            </a>
+            <a href="#">
+                <button type="button" class="btn btn-default xinzhi-home-tag">
+                    魔幻
+                </button>
+            </a>
+            <a href="#">
+                <button type="button" class="btn btn-default xinzhi-home-tag">
+                    黑色幽默
+                </button>
+            </a>
+            <a href="#">
+                <button type="button" class="btn btn-default xinzhi-home-tag">
+                    传记
+                </button>
+            </a>
+            <a href="#">
+                <button type="button" class="btn btn-default xinzhi-home-tag">
+                    情色
+                </button>
+            </a>
+            <a href="#">
+                <button type="button" class="btn btn-default xinzhi-home-tag">
+                    动画短片
+                </button>
+            </a>
+            <a href="#">
+                <button type="button" class="btn btn-default xinzhi-home-tag">
+                    感人
+                </button>
+            </a>
+            <a href="#">
+                <button type="button" class="btn btn-default xinzhi-home-tag">
+                    暴力
+                </button>
+            </a>
+            <a href="#">
+                <button type="button" class="btn btn-default xinzhi-home-tag">
+                    音乐
+                </button>
+            </a>
+            <a href="#">
+                <button type="button" class="btn btn-default xinzhi-home-tag">
+                    家庭
+                </button>
+            </a>
+            <a href="#">
+                <button type="button" class="btn btn-default xinzhi-home-tag">
+                    童年
+                </button>
+            </a>
+            <a href="#">
+                <button type="button" class="btn btn-default xinzhi-home-tag">
+                    黑帮
+                </button>
+            </a>
+            <a href="#">
+                <button type="button" class="btn btn-default xinzhi-home-tag">
+                    浪漫
+                </button>
+            </a>
+            <a href="#">
+                <button type="button" class="btn btn-default xinzhi-home-tag">
+                    女性
+                </button>
+            </a>
+            <a href="#">
+                <button type="button" class="btn btn-default xinzhi-home-tag">
+                    同志
+                </button>
+            </a>
+            <a href="#">
+                <button type="button" class="btn btn-default xinzhi-home-tag">
+                    史诗
+                </button>
+            </a>
+            <a href="#">
+                <button type="button" class="btn btn-default xinzhi-home-tag">
+                    童话
+                </button>
+            </a>
+            <a href="#">
+                <button type="button" class="btn btn-default xinzhi-home-tag">
+                    烂片
+                </button>
+            </a>
+            <a href="#">
+                <button type="button" class="btn btn-default xinzhi-home-tag">
+                    cult
                 </button>
             </a>
         </div>
@@ -220,77 +325,77 @@
         </h3>
         <hr>
         <div class="booktab">
-            <a href="http://xinzhi.codefrom.com/?m=type&amp;type=%E5%85%A8%E6%A0%88">
+            <a href="#">
                 <button type="button" class="btn btn-default xinzhi-home-tag">
                     小说
                 </button>
             </a>
-            <a href="http://xinzhi.codefrom.com/?m=type&amp;type=%E5%89%8D%E7%AB%AF">
+            <a href="#">
                 <button type="button" class="btn btn-default xinzhi-home-tag">
                     随笔
                 </button>
             </a>
-            <a href="http://xinzhi.codefrom.com/?m=type&amp;type=android">
+            <a href="#">
                 <button type="button" class="btn btn-default xinzhi-home-tag">
                     名著
                 </button>
             </a>
-            <a href="http://xinzhi.codefrom.com/?m=type&amp;type=%E5%90%8E%E7%AB%AF">
+            <a href="#">
                 <button type="button" class="btn btn-default xinzhi-home-tag">
                     推理
                 </button>
             </a>
-            <a href="http://xinzhi.codefrom.com/?m=type&amp;type=%E5%AE%89%E5%85%A8">
+            <a href="#">
                 <button type="button" class="btn btn-default xinzhi-home-tag">
                     青春
                 </button>
             </a>
-            <a href="http://xinzhi.codefrom.com/?m=type&amp;type=javascript">
+            <a href="#">
                 <button type="button" class="btn btn-default xinzhi-home-tag">
                     言情
                 </button>
             </a>
-            <a href="http://xinzhi.codefrom.com/?m=type&amp;type=iOS">
+            <a href="#">
                 <button type="button" class="btn btn-default xinzhi-home-tag">
                     科幻
                 </button>
             </a>
-            <a href="http://xinzhi.codefrom.com/?m=type&amp;type=%E8%AE%BE%E8%AE%A1">
+            <a href="#">
                 <button type="button" class="btn btn-default xinzhi-home-tag">
                     哲学
                 </button>
             </a>
-            <a href="http://xinzhi.codefrom.com/?m=type&amp;type=linux">
+            <a href="#">
                 <button type="button" class="btn btn-default xinzhi-home-tag">
                     传记
                 </button>
             </a>
-            <a href="http://xinzhi.codefrom.com/?m=type&amp;type=java">
+            <a href="#">
                 <button type="button" class="btn btn-default xinzhi-home-tag">
                     经济学
                 </button>
             </a>
-            <a href="http://xinzhi.codefrom.com/?m=type&amp;type=%E6%95%B0%E6%8D%AE%E5%BA%93">
+            <a href="#">
                 <button type="button" class="btn btn-default xinzhi-home-tag">
                     管理
                 </button>
             </a>
-            <a href="http://xinzhi.codefrom.com/?m=type&amp;type=%E5%A4%A7%E6%95%B0%E6%8D%AE">
+            <a href="#">
                 <button type="button" class="btn btn-default xinzhi-home-tag">
                     金融
                 </button>
             </a>
-            <a href="http://xinzhi.codefrom.com/?m=type&amp;type=docker">
+            <a href="#">
                 <button type="button" class="btn btn-default xinzhi-home-tag">
                     理财
                 </button>
             </a>
-            <a href="http://xinzhi.codefrom.com/?m=type&amp;type=python">
+            <a href="#">
                 <button type="button" class="btn btn-default xinzhi-home-tag">
                     互联网
                 </button>
             </a>
-            <a href="http://xinzhi.codefrom.com/?m=type&amp;type=%E5%90%8E%E7%AB%AF%E6%8A%80%E6%9C%AF">
+            <a href="#">
                 <button type="button" class="btn btn-default xinzhi-home-tag">
                     编程
                 </button>
