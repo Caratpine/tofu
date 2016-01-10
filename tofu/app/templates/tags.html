@@ -15,8 +15,8 @@
 {% endblock %}
 {% block page_content %}
     <div class="row">
-                <div class="col-md-9">
-                    <div class="panel">
+        <div class="col-md-9">
+            <div class="panel">
                         <div class="panel-body">
                             <div class="row" style="height: 50px; padding-top: 20px;">
                                 <!--标签-->
@@ -85,10 +85,6 @@
                             <hr>
                             {% endfor %}
                         </div>
-
-
-
-
                         <div class="row">
                             <!--分页-->
                             <div class="col-md-2">
@@ -99,17 +95,13 @@
                             </div>
                             <div class="col-md-4">
                             </div>
-                        {% if pagination %}
-                        <div class="pagination">
-                               {{ macros.pagination_widget(pagination, '.tags', fragment='#tags', id=movietags[0].tag_id) }}
-                        </div>
-                        {% endif %}
-
-                            <div class="col-md-1">
+                            {% if pagination %}
+                            <div class="pagination">
+                                   {{ macros.pagination_widget(pagination, '.tags', fragment='#tags', id=movietags[0].tag_id) }}
                             </div>
+                            {% endif %}
+                            <div class="col-md-1"></div>
                         </div>
-
-
                     </div>
                 </div>
                 <div class="col-md-3" class="youce">
