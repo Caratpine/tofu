@@ -15,362 +15,168 @@
 {% endblock %}
 
 {% block page_content %}
-    <div class="row">
-        <div class="col-md-9">
-            <div class="panel">
-                <div class="panel-body">
-                    <div class="search">
-                        <!--搜索框-->
-                        <div class="row">
-                            <div class="col-md-2">
+<div class="row">
+    <div class="col-md-9">
+        <div class="panel">
+            <div class="panel-body">
+                <div class="search">
+                    <!--搜索框-->
+                    <div class="row">
+                        <div class="col-md-2">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="form-group">
+                                <form class="main-search-area" action="/" method="GET">
+                                    <input type="text" name="w" class="form-control" placeholder="书籍、电影" style="font-size: 18px">
+                                    <button type="submit" class="btn btn-warning" style="font-size: 20px;">
+                                        豆腐一下
+                                    </button>
+                                </form>
                             </div>
-                            <div class="col-md-8">
-                                <div class="form-group">
-                                    <form class="main-search-area" action="/" method="GET">
-                                        <input type="text" name="w" class="form-control" placeholder="书籍、电影" style="font-size: 18px">
-                                        <button type="submit" class="btn btn-warning" style="font-size: 20px;">
-                                            豆腐一下
-                                        </button>
-                                    </form>
-                                </div>
-                            </div>
-                            <div class="col-md-2">
-                            </div>
+                        </div>
+                        <div class="col-md-2">
                         </div>
                     </div>
-                    <div class="hotmovie">
-                        <h2>
-                            热门电影
-                        </h2>
-                        <hr>
-                        <div class="row">
-                        {% for movie in movies %}
-                            <div class="col-md-3 text-center">
-                                <!--左侧照片-->
-                                <a href="http://www.baidu.com">
-                                    <img src="{{ movie.image_url }}"
-                                    alt="八恶人" data-x="8100" data-y="12000" onload="loadImg(this)" style="width: 100%; height:50%;opacity: 1;">
-                                    <p>
-                                        {{ movie.name }}
-                                        <strong>
-                                        {{ movie.star }}
-                                        </strong>
-                                    </p>
-                                </a>
-                            </div>
-                            {% endfor %}
+                </div>
+                <div class="hotmovie">
+                    <h2>
+                        热门电影
+                    </h2>
+                    <hr>
+                    <div class="row">
+                    {% for movie in movies %}
+                        <div class="col-md-3 text-center">
+                            <!--左侧照片-->
+                            <a href="http://www.baidu.com">
+                                <img src="{{ movie.image_url }}"
+                                alt="八恶人" data-x="8100" data-y="12000" onload="loadImg(this)" style="width: 100%; height:50%;opacity: 1;">
+                                <p>
+                                    {{ movie.name }}
+                                    <strong>
+                                    {{ movie.star }}
+                                    </strong>
+                                </p>
+                            </a>
                         </div>
-                        <br>
-                        <div class="row">
-                        {% for m in mos %}
-                            <div class="col-md-3 text-center">
-                                <!--左侧照片-->
-                                <a href="http://www.baidu.com">
-                                    <img src="{{ m.image_url }}"
-                                    alt="少年派的奇幻漂流" data-x="3375" data-y="5000" onload="loadImg(this)" style="width: 100%;height:50%; opacity: 1;">
-                                    <p>
-                                    {{ m.name }}
-                                        <strong>
-                                            {{ m.star }}
-                                        </strong>
-                                    </p>
-                                </a>
-                            </div>
-                            {% endfor %}
-                        </div>
+                        {% endfor %}
                     </div>
                     <br>
-                    <div class="hotbook">
-                        <h2>
-                            新书速递
-                        </h2>
-                        <hr>
-                        <div class="row">
-                            <!--图书-->
-                            <div class="col-md-1">
-                            </div>
-                            <div class="col-md-2 text-center">
-                                <a href="http://book.douban.com/subject/26676208/?icn=index-editionrecommend"
-                                title="重逢">
-                                    <img src="http://img3.doubanio.com/lpic/s28352489.jpg" class="" width="106px"
-                                    height="158px" alt="重逢">
-                                </a>
-                            </div>
-                            <div class="col-md-2 text-center">
-                                <a href="http://book.douban.com/subject/26676208/?icn=index-editionrecommend"
-                                title="重逢">
-                                    <img src="http://img3.doubanio.com/lpic/s28352489.jpg" class="" width="106px"
-                                    height="158px" alt="重逢">
-                                </a>
-                            </div>
-                            <div class="col-md-2 text-center">
-                                <a href="http://book.douban.com/subject/26676208/?icn=index-editionrecommend"
-                                title="重逢">
-                                    <img src="http://img3.doubanio.com/lpic/s28352489.jpg" class="" width="106px"
-                                    height="158px" alt="重逢">
-                                </a>
-                            </div>
-                            <div class="col-md-2 text-center">
-                                <a href="http://book.douban.com/subject/26676208/?icn=index-editionrecommend"
-                                title="重逢">
-                                    <img src="http://img3.doubanio.com/lpic/s28352489.jpg" class="" width="106px"
-                                    height="158px" alt="重逢">
-                                </a>
-                            </div>
-                            <div class="col-md-2 text-center">
-                                <a href="http://book.douban.com/subject/26676208/?icn=index-editionrecommend"
-                                title="重逢">
-                                    <img src="http://img3.doubanio.com/lpic/s28352489.jpg" class="" width="106px"
-                                    height="158px" alt="重逢">
-                                </a>
-                            </div>
-                            <div class="col-md-1">
-                            </div>
+                    <div class="row">
+                    {% for m in mos %}
+                        <div class="col-md-3 text-center">
+                            <!--左侧照片-->
+                            <a href="http://www.baidu.com">
+                                <img src="{{ m.image_url }}"
+                                alt="少年派的奇幻漂流" data-x="3375" data-y="5000" onload="loadImg(this)" style="width: 100%;height:50%; opacity: 1;">
+                                <p>
+                                {{ m.name }}
+                                    <strong>
+                                        {{ m.star }}
+                                    </strong>
+                                </p>
+                            </a>
                         </div>
-                        <div class="row">
-                            <!--图书-->
-                            <div class="col-md-1">
-                            </div>
-                            <div class="col-md-2 text-center">
-                                <a href="http://book.douban.com/subject/26676208/?icn=index-editionrecommend"
-                                title="重逢">
-                                    <img src="http://img3.doubanio.com/lpic/s28352489.jpg" class="" width="106px"
-                                    height="158px" alt="重逢">
-                                </a>
-                            </div>
-                            <div class="col-md-2 text-center">
-                                <a href="http://book.douban.com/subject/26676208/?icn=index-editionrecommend"
-                                title="重逢">
-                                    <img src="http://img3.doubanio.com/lpic/s28352489.jpg" class="" width="106px"
-                                    height="158px" alt="重逢">
-                                </a>
-                            </div>
-                            <div class="col-md-2 text-center">
-                                <a href="http://book.douban.com/subject/26676208/?icn=index-editionrecommend"
-                                title="重逢">
-                                    <img src="http://img3.doubanio.com/lpic/s28352489.jpg" class="" width="106px"
-                                    height="158px" alt="重逢">
-                                </a>
-                            </div>
-                            <div class="col-md-2 text-center">
-                                <a href="http://book.douban.com/subject/26676208/?icn=index-editionrecommend"
-                                title="重逢">
-                                    <img src="http://img3.doubanio.com/lpic/s28352489.jpg" class="" width="106px"
-                                    height="158px" alt="重逢">
-                                </a>
-                            </div>
-                            <div class="col-md-2 text-center">
-                                <a href="http://book.douban.com/subject/26676208/?icn=index-editionrecommend"
-                                title="重逢">
-                                    <img src="http://img3.doubanio.com/lpic/s28352489.jpg" class="" width="106px"
-                                    height="158px" alt="重逢">
-                                </a>
-                            </div>
-                            <div class="col-md-1">
-                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <br>
+                <div class="hotbook">
+                    <h2>
+                        新书速递
+                    </h2>
+                    <hr>
+                    <div class="row">
+                        <!--图书-->
+                        <div class="col-md-1">
+                        </div>
+                        <div class="col-md-2 text-center">
+                            <a href="http://book.douban.com/subject/26676208/?icn=index-editionrecommend"
+                            title="重逢">
+                                <img src="http://img3.doubanio.com/lpic/s28352489.jpg" class="" width="106px"
+                                height="158px" alt="重逢">
+                            </a>
+                        </div>
+                        <div class="col-md-2 text-center">
+                            <a href="http://book.douban.com/subject/26676208/?icn=index-editionrecommend"
+                            title="重逢">
+                                <img src="http://img3.doubanio.com/lpic/s28352489.jpg" class="" width="106px"
+                                height="158px" alt="重逢">
+                            </a>
+                        </div>
+                        <div class="col-md-2 text-center">
+                            <a href="http://book.douban.com/subject/26676208/?icn=index-editionrecommend"
+                            title="重逢">
+                                <img src="http://img3.doubanio.com/lpic/s28352489.jpg" class="" width="106px"
+                                height="158px" alt="重逢">
+                            </a>
+                        </div>
+                        <div class="col-md-2 text-center">
+                            <a href="http://book.douban.com/subject/26676208/?icn=index-editionrecommend"
+                            title="重逢">
+                                <img src="http://img3.doubanio.com/lpic/s28352489.jpg" class="" width="106px"
+                                height="158px" alt="重逢">
+                            </a>
+                        </div>
+                        <div class="col-md-2 text-center">
+                            <a href="http://book.douban.com/subject/26676208/?icn=index-editionrecommend"
+                            title="重逢">
+                                <img src="http://img3.doubanio.com/lpic/s28352489.jpg" class="" width="106px"
+                                height="158px" alt="重逢">
+                            </a>
+                        </div>
+                        <div class="col-md-1">
                         </div>
                     </div>
-                    <hr>
+                    <div class="row">
+                        <!--图书-->
+                        <div class="col-md-1">
+                        </div>
+                        <div class="col-md-2 text-center">
+                            <a href="http://book.douban.com/subject/26676208/?icn=index-editionrecommend"
+                            title="重逢">
+                                <img src="http://img3.doubanio.com/lpic/s28352489.jpg" class="" width="106px"
+                                height="158px" alt="重逢">
+                            </a>
+                        </div>
+                        <div class="col-md-2 text-center">
+                            <a href="http://book.douban.com/subject/26676208/?icn=index-editionrecommend"
+                            title="重逢">
+                                <img src="http://img3.doubanio.com/lpic/s28352489.jpg" class="" width="106px"
+                                height="158px" alt="重逢">
+                            </a>
+                        </div>
+                        <div class="col-md-2 text-center">
+                            <a href="http://book.douban.com/subject/26676208/?icn=index-editionrecommend"
+                            title="重逢">
+                                <img src="http://img3.doubanio.com/lpic/s28352489.jpg" class="" width="106px"
+                                height="158px" alt="重逢">
+                            </a>
+                        </div>
+                        <div class="col-md-2 text-center">
+                            <a href="http://book.douban.com/subject/26676208/?icn=index-editionrecommend"
+                            title="重逢">
+                                <img src="http://img3.doubanio.com/lpic/s28352489.jpg" class="" width="106px"
+                                height="158px" alt="重逢">
+                            </a>
+                        </div>
+                        <div class="col-md-2 text-center">
+                            <a href="http://book.douban.com/subject/26676208/?icn=index-editionrecommend"
+                            title="重逢">
+                                <img src="http://img3.doubanio.com/lpic/s28352489.jpg" class="" width="106px"
+                                height="158px" alt="重逢">
+                            </a>
+                        </div>
+                        <div class="col-md-1">
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-        <!--左侧主体-->
-        <div class="col-md-3" class="youce">
-            <!--右侧导航-->
-            <hr>
-            <h3>
-                电影分类
-            </h3>
-            <hr>
-            <div class="movietab">
-                <a href="http://xinzhi.codefrom.com/?m=type&amp;type=%E5%85%A8%E6%A0%88">
-                    <button type="button" class="btn btn-default xinzhi-home-tag">
-                        热门
-                    </button>
-                </a>
-                <a href="http://xinzhi.codefrom.com/?m=type&amp;type=%E5%89%8D%E7%AB%AF">
-                    <button type="button" class="btn btn-default xinzhi-home-tag">
-                        最新
-                    </button>
-                </a>
-                <a href="http://xinzhi.codefrom.com/?m=type&amp;type=android">
-                    <button type="button" class="btn btn-default xinzhi-home-tag">
-                        经典
-                    </button>
-                </a>
-                <a href="http://xinzhi.codefrom.com/?m=type&amp;type=%E5%90%8E%E7%AB%AF">
-                    <button type="button" class="btn btn-default xinzhi-home-tag">
-                        高分
-                    </button>
-                </a>
-                <a href="http://xinzhi.codefrom.com/?m=type&amp;type=%E5%AE%89%E5%85%A8">
-                    <button type="button" class="btn btn-default xinzhi-home-tag">
-                        华语
-                    </button>
-                </a>
-                <a href="http://xinzhi.codefrom.com/?m=type&amp;type=javascript">
-                    <button type="button" class="btn btn-default xinzhi-home-tag">
-                        欧美
-                    </button>
-                </a>
-                <a href="韩国标签.html">
-                    <button type="button" class="btn btn-default xinzhi-home-tag">
-                        韩国
-                    </button>
-                </a>
-                <a href="http://xinzhi.codefrom.com/?m=type&amp;type=%E8%AE%BE%E8%AE%A1">
-                    <button type="button" class="btn btn-default xinzhi-home-tag">
-                        日本
-                    </button>
-                </a>
-                <a href="http://xinzhi.codefrom.com/?m=type&amp;type=linux">
-                    <button type="button" class="btn btn-default xinzhi-home-tag">
-                        动作
-                    </button>
-                </a>
-                <a href="http://xinzhi.codefrom.com/?m=type&amp;type=java">
-                    <button type="button" class="btn btn-default xinzhi-home-tag">
-                        喜剧
-                    </button>
-                </a>
-                <a href="http://xinzhi.codefrom.com/?m=type&amp;type=%E6%95%B0%E6%8D%AE%E5%BA%93">
-                    <button type="button" class="btn btn-default xinzhi-home-tag">
-                        爱情
-                    </button>
-                </a>
-                <a href="http://xinzhi.codefrom.com/?m=type&amp;type=%E5%A4%A7%E6%95%B0%E6%8D%AE">
-                    <button type="button" class="btn btn-default xinzhi-home-tag">
-                        科幻
-                    </button>
-                </a>
-                <a href="http://xinzhi.codefrom.com/?m=type&amp;type=docker">
-                    <button type="button" class="btn btn-default xinzhi-home-tag">
-                        悬疑
-                    </button>
-                </a>
-                <a href="http://xinzhi.codefrom.com/?m=type&amp;type=python">
-                    <button type="button" class="btn btn-default xinzhi-home-tag">
-                        恐怖
-                    </button>
-                </a>
-                <a href="http://xinzhi.codefrom.com/?m=type&amp;type=%E5%90%8E%E7%AB%AF%E6%8A%80%E6%9C%AF">
-                    <button type="button" class="btn btn-default xinzhi-home-tag">
-                        动画
-                    </button>
-                </a>
-            </div>
-            <br>
-            <br>
-            <h3>
-                热门书籍标签
-            </h3>
-            <hr>
-            <div class="booktab">
-                <a href="http://xinzhi.codefrom.com/?m=type&amp;type=%E5%85%A8%E6%A0%88">
-                    <button type="button" class="btn btn-default xinzhi-home-tag">
-                        小说
-                    </button>
-                </a>
-                <a href="http://xinzhi.codefrom.com/?m=type&amp;type=%E5%89%8D%E7%AB%AF">
-                    <button type="button" class="btn btn-default xinzhi-home-tag">
-                        随笔
-                    </button>
-                </a>
-                <a href="http://xinzhi.codefrom.com/?m=type&amp;type=android">
-                    <button type="button" class="btn btn-default xinzhi-home-tag">
-                        名著
-                    </button>
-                </a>
-                <a href="http://xinzhi.codefrom.com/?m=type&amp;type=%E5%90%8E%E7%AB%AF">
-                    <button type="button" class="btn btn-default xinzhi-home-tag">
-                        推理
-                    </button>
-                </a>
-                <a href="http://xinzhi.codefrom.com/?m=type&amp;type=%E5%AE%89%E5%85%A8">
-                    <button type="button" class="btn btn-default xinzhi-home-tag">
-                        青春
-                    </button>
-                </a>
-                <a href="http://xinzhi.codefrom.com/?m=type&amp;type=javascript">
-                    <button type="button" class="btn btn-default xinzhi-home-tag">
-                        言情
-                    </button>
-                </a>
-                <a href="http://xinzhi.codefrom.com/?m=type&amp;type=iOS">
-                    <button type="button" class="btn btn-default xinzhi-home-tag">
-                        科幻
-                    </button>
-                </a>
-                <a href="http://xinzhi.codefrom.com/?m=type&amp;type=%E8%AE%BE%E8%AE%A1">
-                    <button type="button" class="btn btn-default xinzhi-home-tag">
-                        哲学
-                    </button>
-                </a>
-                <a href="http://xinzhi.codefrom.com/?m=type&amp;type=linux">
-                    <button type="button" class="btn btn-default xinzhi-home-tag">
-                        传记
-                    </button>
-                </a>
-                <a href="http://xinzhi.codefrom.com/?m=type&amp;type=java">
-                    <button type="button" class="btn btn-default xinzhi-home-tag">
-                        经济学
-                    </button>
-                </a>
-                <a href="http://xinzhi.codefrom.com/?m=type&amp;type=%E6%95%B0%E6%8D%AE%E5%BA%93">
-                    <button type="button" class="btn btn-default xinzhi-home-tag">
-                        管理
-                    </button>
-                </a>
-                <a href="http://xinzhi.codefrom.com/?m=type&amp;type=%E5%A4%A7%E6%95%B0%E6%8D%AE">
-                    <button type="button" class="btn btn-default xinzhi-home-tag">
-                        金融
-                    </button>
-                </a>
-                <a href="http://xinzhi.codefrom.com/?m=type&amp;type=docker">
-                    <button type="button" class="btn btn-default xinzhi-home-tag">
-                        理财
-                    </button>
-                </a>
-                <a href="http://xinzhi.codefrom.com/?m=type&amp;type=python">
-                    <button type="button" class="btn btn-default xinzhi-home-tag">
-                        互联网
-                    </button>
-                </a>
-                <a href="http://xinzhi.codefrom.com/?m=type&amp;type=%E5%90%8E%E7%AB%AF%E6%8A%80%E6%9C%AF">
-                    <button type="button" class="btn btn-default xinzhi-home-tag">
-                        编程
-                    </button>
-                </a>
-            </div>
-            <br>
-            <h3>
-                电影活动
-            </h3>
-            <hr>
-            <div class="xinzhi-home-comment-list">
-                <div class="xinzhi-home-comment-item">
-                    <a class="xinzhi-home-comment-item-name" href="http://xinzhi.codefrom.com/?m=site&amp;sid=161">
-                        有奖｜分享你变成“大侦探”的瞬间！
-                    </a>
-                </div>
-                <div class="xinzhi-home-comment-item">
-                    <a class="xinzhi-home-comment-item-name" href="http://xinzhi.codefrom.com/?m=site&amp;sid=160">
-                        瓣我同行 | 我的豆瓣观影报告
-                    </a>
-                </div>
-                <div class="xinzhi-home-comment-item">
-                    <a class="xinzhi-home-comment-item-name" href="http://xinzhi.codefrom.com/?m=site&amp;sid=159">
-                        资讯 | 《功夫熊猫3》曝中国正版海报
-                    </a>
-                </div>
-                <p style="text-align:right">
-                    <a class="xinzhi-home-comment-item-name" href="http://xinzhi.codefrom.com/?m=siteList">
-                        查看更多
-                    </a>
-                </p>
+                <hr>
             </div>
         </div>
     </div>
+
+    {{ super() }}
+</div>
 {% endblock %}
 
 {% block scripts %}
