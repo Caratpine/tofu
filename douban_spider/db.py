@@ -45,14 +45,20 @@ def execute_sqls(sql, args=None):
 
 
 def insert_movies(args):
-    sql = "INSERT INTO movies (movie_id, name, star, tag_id, image_url) \
-     VALUES (%s, %s, %s, %s, %s)"
+    sql = "INSERT INTO movies (movie_id, name, star, image_url) \
+     VALUES (%s, %s, %s, %s)"
 
     return execute_sqls(sql, args)
 
 def insert_tags(args):
     sql = "INSERT INTO tags (tag_name) \
     VALUES (%s)"
+
+    return execute_sqls(sql, args)
+
+def insert_movie_tags(args):
+    sql = "INSERT INTO movietags (movie_id, tag_id) \
+     VALUES (%s, %s)"
 
     return execute_sqls(sql, args)
 

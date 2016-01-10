@@ -51,17 +51,19 @@ class Post(db.Model):
 class Movie(db.Model):
     __tablename__ = 'movies'
     id = db.Column(db.Integer, primary_key=True)
-    movie_id = db.Column(db.String(64))
+    movie_id = db.Column(db.String(64), unique=True)
     name = db.Column(db.String(256))
     star = db.Column(db.Float)
     image_url = db.Column(db.String(128))
     movietags = db.relationship('MovieTag',backref='movies',lazy='dynamic')
 
+
 class MovieTag(db.Model):
     __tablename__ = 'movietags'
     id = db.Column(db.Integer,primary_key=True)
-    movie_id = db.Column(db.Integer,db.ForeignKey('movies.id'))
-    tag_id = db.Column(db.Integer,db.ForeignKey('tags.id'))
+    movie_id = db.Column(db.String(64), db.ForeignKey('movies.movie_id'))
+    tag_id = db.Column(db.Integer, db.ForeignKey('tags.id'))
+
 
 class Tag(db.Model):
     __tablename__ = 'tags'
