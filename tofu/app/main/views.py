@@ -36,16 +36,7 @@ def post(id):
 @main.route('/user/<key>')
 @login_required
 def user(key):
-    user = User.query.filter_by(username=key).first()
-    if user is None:
-    	abort(404)
-    page = request.args.get('page', 1, type=int)
-    pagination = user.postfollow.order_by(PostFollow.timestamp.desc()).paginate(page, per_page=5,error_out=False)
-    posts = pagination.items
-    return render_template('user.html', user=user, postfollows=posts,pagination=pagination,username=key)
-
-    # posts = user.posts.order_by(Post.timestamp.desc()).all()
-    # return render_template('user.html', user=user,posts = posts)
+    return render_template('userpage.html')
 
 
 @main.route('/')
