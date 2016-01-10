@@ -52,7 +52,7 @@ class Movie(db.Model):
     __tablename__ = 'movies'
     id = db.Column(db.Integer, primary_key=True)
     movie_id = db.Column(db.String(64))
-    name = db.Column(db.String(64))
+    name = db.Column(db.String(256))
     star = db.Column(db.Float)
     image_url = db.Column(db.String(128))
     movietags = db.relationship('MovieTag',backref='movies',lazy='dynamic')
@@ -66,7 +66,7 @@ class MovieTag(db.Model):
 class Tag(db.Model):
     __tablename__ = 'tags'
     id = db.Column(db.Integer, primary_key=True)
-    tag_name = db.Column(db.String(64))
+    tag_name = db.Column(db.String(256))
     movietags = db.relationship('MovieTag',backref='tags',lazy='dynamic')
 
 class User(UserMixin, db.Model):
