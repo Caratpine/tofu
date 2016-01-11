@@ -21,7 +21,7 @@
                         <!--左侧照片-->
                         <a class="nbgnbg" href="http://movie.douban.com/subject/25823132/photos?type=R"
                         title="点击看更多海报">
-                            <img src="#" title="点击看更多海报" onload="loadImg(this)"
+                            <img src="{{ Info.get('image_url') }}" title="点击看更多海报" onload="loadImg(this)"
                             style="width: 100%; " alt="암살" rel="v:image">
                         </a>
                     </div>
@@ -29,7 +29,7 @@
                         <!--右侧信息-->
                         <h4 class="project-title">
                             <a href="http://xinzhi.codefrom.com/?m=content&amp;pid=7271">
-                                八恶人 The Hateful Eight (2015)
+                                {{Info.get('title')}}
                             </a>
                         </h4>
                         <div class="row">
@@ -44,24 +44,12 @@
                                                 导演
                                             </span>
                                             :
-                                            <span class="attrs">
-                                                <a href="/celebrity/1054444/" rel="v:directedBy">
-                                                    昆汀·塔伦蒂诺
-                                                </a>
+                                            {% for directors in Info.get('directors') %}
+                                             <span class="attrs"> 
+                                                {{ directors }}
+                                              </span>  
+                                            {% endfor %}                                            
                                             </span>
-                                        </span>
-                                        <br>
-                                        <span>
-                                            <span class="pl">
-                                                编剧
-                                            </span>
-                                            :
-                                            <span class="attrs">
-                                                <a href="/celebrity/1054444/">
-                                                    昆汀·塔伦蒂诺
-                                                </a>
-                                            </span>
-                                        </span>
                                         <br>
                                         <span class="actor">
                                             <span class="pl">
@@ -69,152 +57,42 @@
                                             </span>
                                             :
                                             <span class="attrs">
+                                            {% for cast in Info.get('casts') %}
                                                 <span>
-                                                    <a href="/celebrity/1054408/" rel="v:starring">
-                                                        塞缪尔·杰克逊
-                                                    </a>
-                                                    /
+                                                    {{cast}}/
                                                 </span>
-                                                <span>
-                                                    <a href="/celebrity/1031814/" rel="v:starring">
-                                                        库尔特·拉塞尔
-                                                    </a>
-                                                    /
-                                                </span>
-                                                <span>
-                                                    <a href="/celebrity/1004588/" rel="v:starring">
-                                                        詹妮弗·杰森·李
-                                                    </a>
-                                                    /
-                                                </span>
-                                                <span>
-                                                    <a href="/celebrity/1098551/" rel="v:starring">
-                                                        沃尔顿·戈金斯
-                                                    </a>
-                                                    /
-                                                </span>
-                                                <span>
-                                                    <a href="/celebrity/1022762/" rel="v:starring">
-                                                        德米安·比齐尔
-                                                    </a>
-                                                    /
-                                                </span>
-                                                <span style="display: none;">
-                                                    <a href="/celebrity/1025176/" rel="v:starring">
-                                                        蒂姆·罗斯
-                                                    </a>
-                                                    /
-                                                </span>
-                                                <span style="display: none;">
-                                                    <a href="/celebrity/1027816/" rel="v:starring">
-                                                        迈克尔·马德森
-                                                    </a>
-                                                    /
-                                                </span>
-                                                <span style="display: none;">
-                                                    <a href="/celebrity/1019069/" rel="v:starring">
-                                                        布鲁斯·邓恩
-                                                    </a>
-                                                    /
-                                                </span>
-                                                <span style="display: none;">
-                                                    <a href="/celebrity/1136664/" rel="v:starring">
-                                                        詹姆士·帕克斯
-                                                    </a>
-                                                    /
-                                                </span>
-                                                <span style="display: none;">
-                                                    <a href="/celebrity/1031224/" rel="v:starring">
-                                                        查宁·塔图姆
-                                                    </a>
-                                                    /
-                                                </span>
-                                                <span style="display: none;">
-                                                    <a href="/celebrity/1338882/" rel="v:starring">
-                                                        丹娜·格瑞尔
-                                                    </a>
-                                                    /
-                                                </span>
-                                                <span style="http://localhost:5000/moviedisplay: none;">
-                                                    <a href="/celebrity/1040579/" rel="v:starring">
-                                                        佐伊·贝尔
-                                                    </a>
-                                                    /
-                                                </span>
-                                                <span style="display: none;">
-                                                    <a href="/celebrity/1092420/" rel="v:starring">
-                                                        李·霍斯利
-                                                    </a>
-                                                </span>
-                                                <a href="javascript:;" class="more-actor" title="更多主演">
-                                                    更多...
-                                                </a>
-                                            </span>
+                                             {% endfor %}   
                                         </span>
                                         <br>
-                                        <span class="pl">
+                                         <span class="pl">
                                             类型:
                                         </span>
+                                        {% for tag in Info.get('tags') %}
                                         <span property="v:genre">
-                                            剧情
+                                            {{ tag }}
                                         </span>
                                         /
-                                        <span property="v:genre">
-                                            喜剧
-                                        </span>
-                                        /
-                                        <span property="v:genre">
-                                            悬疑
-                                        </span>
-                                        <br>
-                                        <span class="pl">
-                                            官方网站:
-                                        </span>
-                                        <a href="http://thehatefuleight.com" rel="nofollow" target="_blank">
-                                            thehatefuleight.com
-                                        </a>
-                                        <br>
-                                        <span class="pl">
-                                            制片国家/地区:
-                                        </span>
-                                        美国
-                                        <br>
-                                        <span class="pl">
-                                            语言:
-                                        </span>
-                                        英语
+                                        {% endfor %}
                                         <br>
                                         <span class="pl">
                                             上映日期:
                                         </span>
                                         <span property="v:initialReleaseDate" content="2015-12-07(洛杉矶首映)">
-                                            2015-12-07(洛杉矶首映)
+                                            {{ Info.year }}
                                         </span>
-                                        /
-                                        <span property="v:initialReleaseDate" content="2016-01-01(美国)">
-                                            2016-01-01(美国)
+                                        <br>                                       
+                                        <span class="pl">
+                                            制片国家/地区:
                                         </span>
+                                        {% for country in Info.get('country') %}
+                                        {{ country }}/
+                                        {% endfor %}
+                                        <br>
                                         <br>
                                         <span class="pl">
-                                            片长:
+                                        电影简介:
                                         </span>
-                                        <span property="v:runtime" content="168">
-                                            168分钟(数字版)
-                                        </span>
-                                        / 182分钟(胶片版)
-                                        <br>
-                                        <span class="pl">
-                                            又名:
-                                        </span>
-                                        可憎八人 / The H8ful Eight / The Hateful 8
-                                        <br>
-                                        <span class="pl">
-                                            IMDb链接:
-                                        </span>
-                                        <a href="http://www.imdb.com/title/tt3460252" target="_blank" rel="nofollow">
-                                            tt3460252
-                                        </a>
-                                        <br>
+                                        {{ Info.summary }}
                                     </div>
                                 </div>
                             </div>
@@ -224,8 +102,12 @@
             
                 <div class="row" class="shoucang">
                         <div class="col-md-2 text-center" >
-                                <a href="#">shoucang
-                                </a>    
+                    {% if flag==1 %}
+                    <a href="{{ url_for('.collect', id = id) }}" class="btn btn-primary">collect</a>
+                    {% endif %}
+                    {% if flag == 0 %}
+                    <a href="{{ url_for('.uncollect', id = id) }}" class="btn btn-default">Uncollect</a>
+                    {% endif %}
                         </div>
                         <div class="col-md-2">
                                 

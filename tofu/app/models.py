@@ -36,7 +36,7 @@ class Comment(db.Model):
     body = db.Column(db.Text)
     timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
     author_id = db.Column(db.Integer, db.ForeignKey('users.id'))
-    post_id = db.Column(db.Integer, db.ForeignKey('posts.id'))
+    movie_id = db.Column(db.Integer, db.ForeignKey('movies.id'))
 
 class Post(db.Model):
     __tablename__ = 'posts'
@@ -44,8 +44,6 @@ class Post(db.Model):
     body = db.Column(db.Text)
     timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
     author_id = db.Column(db.Integer, db.ForeignKey('users.id'))
-    postfollow = db.relationship('PostFollow',backref='posts')
-    comments = db.relationship('Comment', backref='post', lazy='dynamic')
 
 
 class Movie(db.Model):
@@ -56,7 +54,8 @@ class Movie(db.Model):
     star = db.Column(db.Float)
     image_url = db.Column(db.String(256))
     movietags = db.relationship('MovieTag',backref='movies',lazy='dynamic')
-
+    moviecollects = db.relationship('MovieCollect',backref='collector',lazy='dynamic')
+    comments = db.relationship('Comment',backref='movies',lazy='dynamic')
 
 class MovieTag(db.Model):
     __tablename__ = 'movietags'
@@ -71,6 +70,11 @@ class Tag(db.Model):
     tag_name = db.Column(db.String(256))
     movietags = db.relationship('MovieTag',backref='tags',lazy='dynamic')
 
+class MovieCollect(db.Model):
+    __tablename__='moviecollect'
+    id = db.Column(db.Integer,primary_key=True)
+    movie_id = db.Column(db.Integer,db.ForeignKey('movies.id'))
+    user_id = db.Column(db.Integer,db.ForeignKey('users.id'))
 
 class User(UserMixin, db.Model):
     __tablename__ = 'users'
@@ -85,6 +89,8 @@ class User(UserMixin, db.Model):
     posts = db.relationship('Post',backref='author',lazy='dynamic')
     postfollow = db.relationship('PostFollow',backref='user', lazy='dynamic')
     comments = db.relationship('Comment', backref='author', lazy='dynamic')
+    moviecollects = db.relationship('MovieCollect',backref='collects',lazy='dynamic')
+
     followers = db.relationship('Follow',
                                 foreign_keys=[Follow.followed_id],
                                 backref=db.backref('followed', lazy='joined'),
