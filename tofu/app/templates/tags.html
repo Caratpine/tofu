@@ -48,7 +48,7 @@
                                 <div class="col-md-10 col-sm-9">
                                     <!--右侧信息-->
                                     <h4 class="project-title">
-                                        <a href="http://xinzhi.codefrom.com/?m=content&amp;pid=7271">
+                                        <a href="{{  url_for('main.moviepage',id=movietag.movies.movie_id) }}">
                                         {{ movietag.movies.name }}
                                         </a>
                                     </h4>
@@ -65,20 +65,8 @@
                                                         类型:
                                                     </span>
                                                     <span property="v:genre">
-                                                        剧情
                                                     </span>
                                                     /
-                                                    <span property="v:genre">
-                                                        动作
-                                                    </span>
-                                                    /
-                                                    <span property="v:genre">
-                                                        历史
-                                                    </span>
-                                                    /
-                                                    <span property="v:genre">
-                                                        犯罪
-                                                    </span>
                                                     <br>
                                                     <br>
                                                     <br>    

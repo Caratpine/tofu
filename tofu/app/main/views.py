@@ -5,6 +5,9 @@ from .. import db
 from ..models import User,Post,PostFollow,Follow,Comment,Movie,MovieTag,Tag
 from .forms import PostForm,SearchForm,CommentForm
 
+@main.route('/movies/<id>')
+def  moviepage(id):    
+    return render_template('moviepage.html')
 
 @main.route('/post/<int:id>',methods=['GET','POST'])
 @login_required
