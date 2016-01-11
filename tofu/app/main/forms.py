@@ -2,7 +2,7 @@ from flask.ext.wtf import Form
 from wtforms import StringField, TextAreaField, BooleanField, SelectField,SubmitField,TextField
 from wtforms.validators import Required, Length, Email, Regexp
 from wtforms import ValidationError
-from ..models import Role, User
+from ..models import User
 
 class PostForm(Form):
     body = TextAreaField("What's on your mind?", validators=[Required()])

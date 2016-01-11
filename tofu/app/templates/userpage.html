@@ -26,7 +26,7 @@
                         </div>
                         <div class="col-md-11">
                             <h2>
-                                luoxiao
+                                {{  user.username }}
                             </h2>
                         </div>
                     </div>
@@ -38,56 +38,22 @@
                     </h2>
                     <br>
                     <div class="row">
+                    {% for moviecollect in moviecollects %}
                         <div class="col-md-2">
-                            <a href="#">
-                                <img src="#" onload="loadImg(this)" style="width: 100%; " rel="v:image">
+                            <a href="{{ url_for('.moviepage',id=moviecollect.collector.movie_id) }}">
+                                <img src="{{moviecollect.collector.image_url}}" onload="loadImg(this)" style="width: 100%; " rel="v:image">
                                 <p>
-                                    laopaoer
+                                    {{ moviecollect.collector.name }}
                                 </p>
                             </a>
                         </div>
-                        <div class="col-md-2">
-                            <a href="#">
-                                <img src="#" onload="loadImg(this)" style="width: 100%; " rel="v:image">
-                                <p>
-                                    laopaoer
-                                </p>
-                            </a>
-                        </div>
-                        <div class="col-md-2">
-                            <a href="#">
-                                <img src="#" onload="loadImg(this)" style="width: 100%; " rel="v:image">
-                                <p>
-                                    laopaoer
-                                </p>
-                            </a>
-                        </div>
-                        <div class="col-md-2">
-                            <a href="#">
-                                <img src="#" onload="loadImg(this)" style="width: 100%; " rel="v:image">
-                                <p>
-                                    laopaoer
-                                </p>
-                            </a>
-                        </div>
-                        <div class="col-md-2">
-                            <a href="#">
-                                <img src="#" onload="loadImg(this)" style="width: 100%; " rel="v:image">
-                                <p>
-                                    laopaoer
-                                </p>
-                            </a>
-                        </div>
-                        <div class="col-md-2">
-                            <br>
-                            <br>
-                            <br>
-                            <br>
-                            <a href="#" color="#828">
-                                more
-                            </a>
-                        </div>
+                        {% endfor %} 
                     </div>
+            {% if pagination %}
+            <div class="pagination">
+                {{ macros.pagination_widget(pagination, '.user',username=username) }}
+            </div>
+            {% endif %}                     
                 </div>
                 <hr>
                 <div class="usercomment">
@@ -95,39 +61,20 @@
                         Mycomment
                     </h2>
                     <br>
+            {% for comment in user.comments %}
                     <div class="author">
                         <span class="">
-                            2015-11-14 12:32:11
+                            {{ comment.timestamp }}
                         </span>
                         <a class=" " href="http://www.douban.com/people/134262041/">
-                            luoxiao
+                            {{ user.username }}
                         </a>
                     </div>
                     <p class="">
-                        看着影评好有劲儿，好想马上去看
+                    {{ comment.body }}
                     </p>
-                    <div class="author">
-                        <span class="">
-                            2015-11-14 12:32:11
-                        </span>
-                        <a class=" " href="http://www.douban.com/people/134262041/">
-                            luoxiao
-                        </a>
-                    </div>
-                    <p class="">
-                        看着影评好有劲儿，好想马上去看
-                    </p>
-                    <div class="author">
-                        <span class="">
-                            2015-11-14 12:32:11
-                        </span>
-                        <a class=" " href="http://www.douban.com/people/134262041/">
-                            luoxiao
-                        </a>
-                    </div>
-                    <p class="">
-                        看着影评好有劲儿，好想马上去看
-                    </p>
+                    {% endfor %}
+
                 </div>
             </div>
         </div>

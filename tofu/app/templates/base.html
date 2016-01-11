@@ -43,11 +43,13 @@
                         电影
                     </a>
                 </li>
+                {% if current_user.is_authenticated %}
                 <li>
-                    <a href="http://www.codefrom.com/topics">
+                    <a href="{{url_for('.user',key=current_user.username) }}">
                         个人中心
                     </a>
                 </li>
+                {% endif %}
                 <li>
                     <a href="#">
                         关于

@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% import "bootstrap/wtf.html" as wtf %}
 {% import "_macros.html" as macros %}
+{% import "bootstrap/wtf.html" as wtf %}
 
 {% block title %}详情页{% endblock %}
 {% block head %}
@@ -127,8 +128,19 @@
 
                 </div>
             </div>
+            <div class="comment-form">
+                {{ wtf.quick_form(form) }}
+            </div>
+            <hr>
+            {% include '_comments.html' %}
+
             <div class="row" class="fenye">
                 <!--分页-->
+                        {% if pagination %}
+                        <div class="pagination">
+                               {{ macros.pagination_widget(pagination, '.moviepage', fragment='#comments', id=movies[0].movie_id) }}
+                        </div>
+                        {% endif %}
                 <div class="col-md-2">
                 </div>
                 <div class="col-md-2">

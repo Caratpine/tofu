@@ -4,7 +4,7 @@ import requests
 import json
 from . import main
 from .. import db
-from ..models import User,Post,PostFollow,Follow,Comment,Movie,MovieTag,Tag,MovieCollect
+from ..models import User,Comment,Movie,MovieTag,Tag,MovieCollect
 from .forms import PostForm,SearchForm,CommentForm
 
 
@@ -12,10 +12,12 @@ from .forms import PostForm,SearchForm,CommentForm
 @main.route('/movies/<id>',methods=['GET','POST'])
 def  moviepage(id):    
     m = Movie.query.filter_by(movie_id=id).first()
-    if current_user.moviecollects.filter_by(movie_id = m.id).first() is not None:
-        flag = 0
-    else:
-        flag = 1
+    flag = 3
+    if current_user.is_authenticated:
+        if current_user.moviecollects.filter_by(movie_id = m.id).first() is not None:
+            flag = 0
+        else:
+            flag = 1
     headers = {
         'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 \
         Safari/537.36'
@@ -48,14 +50,18 @@ def  moviepage(id):
                     'directors':director_list,
                     'summary':summary,
                     'original_title':original_title       
-        }    
+        } 
         form = CommentForm()
         if form.validate_on_submit():
-                comment = Comment(body=form.body.data,movies=m,author=current_user._get_current_object())
-                db.session.add(comment)
-                db.session.commit()
-                flash('Your comment has been published.')
-                return redirect(url_for('.moviepage', id=m.movie_id))
+                if current_user.is_authenticated:
+                    comment = Comment(body=form.body.data,movies=m,author=current_user._get_current_object())
+                    db.session.add(comment)
+                    db.session.commit()
+                    flash('Your comment has been published.')
+                    return redirect(url_for('.moviepage', id=m.movie_id))
+                else:
+                    flash('you must login first.')
+                    return redirect(url_for('auth.login'))     
         page = request.args.get('page', 1, type=int)
         pagination = m.comments.order_by(Comment.timestamp.desc()).paginate(page, per_page=5,error_out=False)
         comments = pagination.items
@@ -65,32 +71,17 @@ def  moviepage(id):
 
 
 
-@main.route('/post/<int:id>',methods=['GET','POST'])
-@login_required
-def post(id):
-    post = Post.query.get_or_404(id)
-    form = CommentForm()
-    if form.validate_on_submit():
-        comment = Comment(body=form.body.data,post=post,author=current_user._get_current_object())
-        db.session.add(comment)
-        db.session.commit()
-        flash('Your comment has been published.')
-        return redirect(url_for('.post', id=post.id))
-    page = request.args.get('page', 1, type=int)
-    pagination = post.comments.order_by(Comment.timestamp.desc()).paginate(page, per_page=5,error_out=False)
-    comments = pagination.items
-    if current_user.postfollow.filter_by(post_id = id).first() is not None:
-        flag = 0
-    else:
-        flag = 1
-    return render_template('post.html', posts=[post], form=form,comments=comments, id = m.id,flag = flag,pagination=pagination)
-    #return render_template('post.html',posts = [post],id = id,flag = flag,form = form)
-
-
 @main.route('/user/<key>')
 @login_required
 def user(key):
-    return render_template('userpage.html')
+    user = User.query.filter_by(username=key).first()
+    if user is None:
+        abort(404)
+
+    page = request.args.get('page', 1, type=int)
+    pagination = user.moviecollects.order_by(MovieCollect.id.desc()).paginate(page, per_page=5,error_out=False)
+    moviecollects = pagination.items
+    return render_template('userpage.html', user=user, moviecollects=moviecollects,pagination=pagination,username=key)
 
 
 @main.route('/')
@@ -107,54 +98,6 @@ def tags(id):
     movietags = pagination.items
     return render_template('tags.html',movietags = movietags,pagination=pagination,tag = tag)
 
-
-@main.route('/search/<key>',methods=['GET','POST'])
-def search(key):
-    form = SearchForm()
-    key = key
-    if form.validate_on_submit():
-        return redirect(url_for('.search',key = form.key.data))
-    user = User.query.filter_by(username = key).first()
-    if user is not None:
-        page = request.args.get('page', 1, type=int)
-        #current_app.config['FLASKY_POSTS_PER_PAGE']
-        pagination = user.posts.order_by(Post.timestamp.desc()).paginate(page, per_page=5,error_out=False)
-        posts = pagination.items
-        return render_template('search.html', form=form, posts=posts,pagination=pagination,key=key)
-    else:
-        flash('your search have No Result !')
-        return redirect(url_for('.index'))
-
-
-@main.route('/follow/<username>')
-@login_required
-def follow(username):
-    user = User.query.filter_by(username=username).first()
-    if user is None:
-        flash('Invalid user.')
-        return redirect(url_for('.index'))
-    if current_user.is_following(user):
-        flash('You are already following this user.')
-        return redirect(url_for('.user', username=username))
-    current_user.follow(user)
-    flash('You are now following %s.' % username)
-    return redirect(url_for('.user', key=username))
-
-@main.route('/unfollow/<username>')
-@login_required
-def unfollow(username):
-    user = User.query.filter_by(username=username).first()
-    if user is None:
-        flash('Invalid user.')
-        return redirect(url_for('.index'))
-    if not current_user.is_following(user):
-        flash('You are not following this user.')
-        return redirect(url_for('.user', username=username))
-    current_user.unfollow(user)
-    flash('You are not following %s anymore.' % username)
-    return redirect(url_for('.user', key=username))
-
-
 @main.route('/collect/<int:id>')
 @login_required
 def collect(id):
@@ -166,10 +109,10 @@ def collect(id):
             mc = MovieCollect(user_id = current_user.id,movie_id = id)
             db.session.add(mc)
             db.session.commit()
-            flash('You are collect this post.')
+            flash('You are collect this movie.')
             return redirect(url_for('.moviepage',id = movie.movie_id,flag = 0))
     else:
-            flash("you have already collect this post.")
+            flash("you have already collect this movie.")
             return redirect(url_for('.moviepage',id = movie.movie_id,flag = 0))
 
 @main.route('/uncollect/<int:id>')
@@ -183,8 +126,8 @@ def uncollect(id):
             pf = current_user.moviecollects.filter_by(movie_id = id).first()
             db.session.delete(pf)
             db.session.commit()
-            flash('You are not collect post anymore.')
+            flash('You are not collect movie anymore.')
             return redirect(url_for('.moviepage',id = movie.movie_id,flag = 1))
         else:
-           flash("You are not collect the post.")
+           flash("You are not collect the movie.")
            return redirect(url_for('.moviepage',id = movie.movie_id,flag =1))
