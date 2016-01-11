@@ -44,113 +44,39 @@
                         </h2>
                         <hr>
                         <div class="row">
+                        {% for movie in movies %}
                             <div class="col-md-3 text-center">
                                 <!--左侧照片-->
                                 <a href="http://www.baidu.com">
-                                    <img src="http://img3.douban.com/view/movie_poster_cover/lpst/public/p2287491621.jpg"
-                                    alt="八恶人" data-x="8100" data-y="12000" onload="loadImg(this)" style="width: 100%; opacity: 1;">
+                                    <img src="{{ movie.image_url }}"
+                                    alt="八恶人" data-x="8100" data-y="12000" onload="loadImg(this)" style="width: 100%; height:50%;opacity: 1;">
                                     <p>
-                                        八恶人
+                                        {{ movie.name }}
                                         <strong>
-                                            8.6
+                                        {{ movie.star }}
                                         </strong>
                                     </p>
                                 </a>
                             </div>
-                            <div class="col-md-3 text-center">
-                                <!--左侧照片-->
-                                <a href="http://www.baidu.com">
-                                    <img src="http://img3.douban.com/view/movie_poster_cover/lpst/public/p511118051.jpg"
-                                    alt="这个杀手不太冷" data-x="658" data-y="980" onload="loadImg(this)" style="width: 100%; opacity: 1;">
-                                    <p>
-                                        这个杀手不太冷
-                                        <strong>
-                                            9.4
-                                        </strong>
-                                    </p>
-                                </a>
-                            </div>
-                            <div class="col-md-3 text-center">
-                                <!--左侧照片-->
-                                <a href="http://www.baidu.com">
-                                    <img src="http://img3.doubanio.com/view/movie_poster_cover/lpst/public/p1910830216.jpg"
-                                    alt="千与千寻" data-x="400" data-y="588" onload="loadImg(this)" style="width: 100%; opacity: 1;">
-                                    <p>
-                                        千与千寻
-                                        <strong>
-                                            9.2
-                                        </strong>
-                                    </p>
-                                </a>
-                            </div>
-                            <div class="col-md-3 text-center">
-                                <!--左侧照片-->
-                                <a href="http://www.baidu.com">
-                                    <img src="http://img3.douban.com/view/movie_poster_cover/lpst/public/p480747492.jpg"
-                                    alt="肖申克的救赎" data-x="2000" data-y="2963" onload="loadImg(this)" style="width: 100%; opacity: 1;">
-                                    <p>
-                                        肖申克救赎
-                                        <strong>
-                                            9.6
-                                        </strong>
-                                    </p>
-                                </a>
-                            </div>
+                            {% endfor %}
                         </div>
                         <br>
                         <div class="row">
+                        {% for m in mos %}
                             <div class="col-md-3 text-center">
                                 <!--左侧照片-->
                                 <a href="http://www.baidu.com">
-                                    <img src="http://img3.douban.com/view/movie_poster_cover/lpst/public/p1784592701.jpg"
-                                    alt="少年派的奇幻漂流" data-x="3375" data-y="5000" onload="loadImg(this)" style="width: 100%; opacity: 1;">
+                                    <img src="{{ m.image_url }}"
+                                    alt="少年派的奇幻漂流" data-x="3375" data-y="5000" onload="loadImg(this)" style="width: 100%;height:50%; opacity: 1;">
                                     <p>
-                                        少年派漂流记
+                                    {{ m.name }}
                                         <strong>
-                                            9.0
+                                            {{ m.star }}
                                         </strong>
                                     </p>
                                 </a>
                             </div>
-                            <div class="col-md-3 text-center">
-                                <!--左侧照片-->
-                                <a href="http://www.baidu.com">
-                                    <img src="http://img3.doubanio.com/view/movie_poster_cover/lpst/public/p663036666.jpg"
-                                    alt="怦然心动" data-x="1076" data-y="1600" onload="loadImg(this)" style="width: 100%; opacity: 1;">
-                                    <p>
-                                        怦然心动
-                                        <strong>
-                                            8.9
-                                        </strong>
-                                    </p>
-                                </a>
-                            </div>
-                            <div class="col-md-3 text-center">
-                                <!--左侧照片-->
-                                <a href="http://www.baidu.com">
-                                    <img src="http://img3.douban.com/view/movie_poster_cover/lpst/public/p2206088801.jpg"
-                                    alt="星际穿越" data-x="4858" data-y="7200" onload="loadImg(this)" style="width: 100%; opacity: 1;">
-                                    <p>
-                                        星际穿越
-                                        <strong>
-                                            9.1
-                                        </strong>
-                                    </p>
-                                </a>
-                            </div>
-                            <div class="col-md-3 text-center">
-                                <!--左侧照片-->
-                                <a href="http://www.baidu.com">
-                                    <img src="http://img3.douban.com/view/movie_poster_cover/lpst/public/p449665982.jpg"
-                                    alt="机器人总动员" data-x="510" data-y="755" onload="loadImg(this)" style="width: 100%; opacity: 1;">
-                                    <p>
-                                        机器人万里
-                                        <strong>
-                                            9.3
-                                        </strong>
-                                    </p>
-                                </a>
-                            </div>
+                            {% endfor %}
                         </div>
                     </div>
                     <br>

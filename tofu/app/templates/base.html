@@ -26,7 +26,7 @@
                     <span class="icon-bar">
                     </span>
                 </button>
-                <a href="https://www.baidu.com/" class="navbar-brand">
+                <a href="{{ url_for('main.index') }}" class="navbar-brand">
                     首页
                 </a>
             </div>
@@ -56,10 +56,11 @@
                 </ul>
                 <!--下拉-->
                 <ul class="nav navbar-nav navbar-right hidden-sm">
+                {% if current_user.is_authenticated %}                
                     <li class="dropdown">
                         <a href="http://xinzhi.codefrom.com/?m=type&amp;type=python#" class="dropdown-toggle"
                         data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                            罗肖
+                            {{ current_user.username }}
                             <span class="caret">
                             </span>
                         </a>
@@ -82,10 +83,13 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="http://xinzhi.codefrom.com/?m=logout">
+                        <a href="{{ url_for('auth.logout') }}">
                             退出
                         </a>
                     </li>
+                  {% else %}
+                    <li><a href="{{ url_for('auth.login') }}">登陆</a></li>
+                  {% endif %}
                 </ul>
             </nav>
         </div>

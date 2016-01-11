@@ -2,7 +2,7 @@ from flask import render_template, redirect, url_for, abort, flash,current_app,r
 from flask.ext.login import login_required, current_user
 from . import main
 from .. import db
-from ..models import User,Post,PostFollow,Follow,Comment
+from ..models import User,Post,PostFollow,Follow,Comment,Movie,MovieTag,Tag
 from .forms import PostForm,SearchForm,CommentForm
 
 
@@ -43,20 +43,20 @@ def user(key):
     # return render_template('user.html', user=user,posts = posts)
 
 
-@main.route('/',methods=['GET','POST'])
+@main.route('/')
 def index():
-	form = SearchForm()
-	if form.validate_on_submit():
-		return redirect(url_for('.search',key = form.key.data))
-	page = request.args.get('page', 1, type=int)
-	#current_app.config['FLASKY_POSTS_PER_PAGE']
-    	pagination = Post.query.order_by(Post.timestamp.desc()).paginate(page, per_page=5,error_out=False)
-    	posts = pagination.items
-    	# return render_template('index.html', form=form, posts=posts,pagination=pagination)
-        return render_template('index.html')
+    movies = Movie.query.order_by(Movie.star.desc()).limit(4)
+    mos = Movie.query.order_by(Movie.id.asc()).limit(4)
+    return render_template('index.html',movies = movies,mos = mos)
 
-    posts = Post.query.order_by(Post.timestamp.desc()).all()
-    return render_template('index.html', form=form, posts=posts)
+@main.route('/tags/<int:id>')
+def tags(id):
+    tag = Tag().query.filter_by(id = id).first()
+    page = request.args.get('page', 1, type=int)
+    pagination = MovieTag.query.order_by(MovieTag.id.asc()).filter_by(tag_id=id).paginate(page, per_page=5,error_out=False)
+    movietags = pagination.items
+    return render_template('tags.html',movietags = movietags,pagination=pagination,tag = tag)        
+
 
 @main.route('/search/<key>',methods=['GET','POST'])
 def search(key):
