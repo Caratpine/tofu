@@ -64,9 +64,13 @@
                                         <span class="pl">
                                             类型:
                                         </span>
-                                        <span property="v:genre">
-                                        </span>
-                                        /
+                                    {% for tag in movietag.movies.movietags %}
+                                         <span property="v:genre">
+                                                        {{ tag.tags.tag_name }}
+                                     </span>
+                                                    /
+                                    {% endfor %}
+                                        
                                         <br>
                                         <br>
                                         <br>
