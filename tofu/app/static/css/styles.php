@@ -309,5 +309,5 @@ a,a:hover {
 }
 
 .mama{
-    margin-top:20px;
+    padding-top:30px;
 }
