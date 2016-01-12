@@ -9,7 +9,7 @@ class PostForm(Form):
     submit = SubmitField('Submit')
 
 class CommentForm(Form):
-    body = TextAreaField('Enter your comment', validators=[Required()])
+    body = TextAreaField('Please enter your comment:', validators=[Required()])
     submit = SubmitField('Submit')
 class SearchForm(Form):
 	key = TextField('',validators=[Required()])

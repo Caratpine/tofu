@@ -16,142 +16,166 @@
     <div class="col-md-9">
         <div class="panel">
             <div class="panel-body">
-                <hr>
-                <div class="row" class="movieinfo">
-                    <div class="col-md-2 col-sm-3 text-center">
-                        <!--左侧照片-->
-                        <a class="nbgnbg" href="http://movie.douban.com/subject/25823132/photos?type=R"
-                        title="点击看更多海报">
-                            <img src="{{ Info.get('image_url') }}" title="点击看更多海报" onload="loadImg(this)"
-                            style="width: 100%; " alt="암살" rel="v:image">
-                        </a>
-                    </div>
-                    <div class="col-md-10 col-sm-9 text-cener">
-                        <!--右侧信息-->
-                        <h4 class="project-title">
-                            <a href="http://xinzhi.codefrom.com/?m=content&amp;pid=7271">
-                                {{Info.get('title')}}
+                    <br>
+                    <div class="row" class="movieinfo">
+                        <div class="col-md-3 col-sm-3 text-center">
+                            <!--左侧照片-->
+                            <a class="nbgnbg" href="http://movie.douban.com/subject/25823132/photos?type=R">
+                                <img src="{{ Info.get('image_url') }}" onload="loadImg(this)"
+                                style="width: 100%; " rel="v:image">
                             </a>
-                        </h4>
-                        <div class="row">
-                            <div class="col-xs-12 col-md-8">
-                                <!--<div class="project-desc">描述</div>-->
-                                <div class="project-tags" style="background-color: #a6e1ec">
-                                </div>
-                                <div class="project-info">
-                                    <div class="info">
-                                        <span>
-                                            <span class="pl">
-                                                导演
-                                            </span>
-                                            :
-                                            {% for directors in Info.get('directors') %}
-                                             <span class="attrs"> 
-                                                {{ directors }}
-                                              </span>  
-                                            {% endfor %}                                            
-                                            </span>
-                                        <br>
-                                        <span class="actor">
-                                            <span class="pl">
-                                                主演
-                                            </span>
-                                            :
-                                            <span class="attrs">
-                                            {% for cast in Info.get('casts') %}
-                                                <span>
-                                                    {{cast}}/
+                            <div class="mama text-center">
+                                        {% if flag==1 %}
+                                        <a href="{{ url_for('.collect', id = id) }}" class="btn btn-primary">collect</a>
+                                        {% endif %}
+                                        {% if flag == 0 %}
+                                        <a href="{{ url_for('.uncollect', id = id) }}" class="btn btn-default">Uncollect</a>
+                                        {% endif %}
+                            </div>
+                        </div>
+                        <div class="col-md-9 col-sm-9 text-cener">
+                            <!--右侧信息-->
+                            <h4 class="project-title">
+                                <a href="http://xinzhi.codefrom.com/?m=content&amp;pid=7271">
+                                    {{Info.get('title')}}
+                                </a>
+                            </h4>
+                            <div class="row">
+                                <div class="col-xs-12 col-md-8">
+                                    <!--<div class="project-desc">描述</div>-->
+                                    <div class="project-tags" style="background-color: #a6e1ec">
+                                    </div>
+                                    <div class="project-info">
+                                        <div class="info">
+                                            <span>
+                                                <span class="pl">
+                                                    导演
                                                 </span>
-                                             {% endfor %}   
-                                        </span>
-                                        <br>
-                                         <span class="pl">
-                                            类型:
-                                        </span>
-                                        {% for tag in Info.get('tags') %}
-                                        <span property="v:genre">
-                                            {{ tag }}
-                                        </span>
-                                        /
-                                        {% endfor %}
-                                        <br>
-                                        <span class="pl">
-                                            上映日期:
-                                        </span>
-                                        <span property="v:initialReleaseDate" content="2015-12-07(洛杉矶首映)">
-                                            {{ Info.year }}
-                                        </span>
-                                        <br>                                       
-                                        <span class="pl">
-                                            制片国家/地区:
-                                        </span>
-                                        {% for country in Info.get('country') %}
-                                        {{ country }}/
-                                        {% endfor %}
-                                        <br>
-                                        <br>
-                                        <span class="pl">
-                                        电影简介:
-                                        </span>
-                                        {{ Info.summary }}
+                                                :
+                                                {% for directors in Info.get('directors') %}
+                                                 <span class="attrs"> 
+                                                    {{ directors }}
+                                                  </span>  
+                                                {% endfor %}                                            
+                                                </span>
+                                            <br>
+                                                <span class="pl">
+                                                    主演
+                                                </span>
+                                                :
+                                                <span class="attrs">
+                                                {% for cast in Info.get('casts') %}
+                                                    <span>
+                                                        {{cast}}/
+                                                    </span>
+                                                 {% endfor %}   
+                                            </span>
+                                            <br>
+                                             <span class="pl">
+                                                类型:
+                                            </span>
+                                            {% for tag in Info.get('tags') %}
+                                            <span property="v:genre">
+                                                {{ tag }}
+                                            </span>
+                                            /
+                                            {% endfor %}
+                                            <br>
+                                            <span class="pl">
+                                                上映日期:
+                                            </span>
+                                            <span property="v:initialReleaseDate" content="2015-12-07(洛杉矶首映)">
+                                                {{ Info.year }}
+                                            </span>
+                                            <br>                                       
+                                            <span class="pl">
+                                                制片国家/地区:
+                                            </span>
+                                            {% for country in Info.get('country') %}
+                                            {{ country }}/
+                                            {% endfor %}
+                                            <br>
+                                            <br>
+                                            <span class="pl">
+                                            电影简介:
+                                            </span>
+                                            {{ Info.summary }}
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
+
+
+
+                    <br>
+                    <div class="showcoments" >
+                                       <h3 style="padding-left:10px; background-color:#F0F3F5">大家的回应...</h3> 
+                                       <br>  
+                                              <div class="comments">
+                                                        {% for comment in comments %}
+                                                         <div class="row">
+                                                                        <div class="col-md-2 text-center" >
+                                                                                     <a href="{{ url_for('.user', key=comment.author.username) }}">
+                                                                                            <img class="img-rounded profile-thumbnail" src="../static/image/FZL.jpg" width="60%">
+                                                                                     </a>
+                                                                                     <div class="yonghuming" style="">
+                                                                                             <a href="{{ url_for('.user', key=comment.author.username) }}" style="color:#37a; font-size:18px;" >
+                                                                                                    {{ comment.author.username }}
+                                                                                             </a>
+                                                                                    </div>
+                                                                        </div>
+                                                                        <div class="col-md-8" style="padding-top:12px">
+                                                                                    <div class="comment-body" style="font-size:18px; color:#555;">
+                                                                                            {{ comment.body }}
+                                                                                    </div>
+                                                                                    <div class="comment-date">
+                                                                                            {{ moment(comment.timestamp).fromNow() }}
+                                                                                    </div>
+                                                                        </div>
+                                                                        <div class="col-md-2">         
+                                                                        </div>
+                                                        </div>
+                                                        <hr>
+                                                        {% endfor %}
+                                              </div>
+                    </div>
+                    <div class="row" class="fenye">
+                        <!--分页-->
+                                {% if pagination %}
+                                <div class="pagination">
+                                       {{ macros.pagination_widget(pagination, '.moviepage', fragment='#comments', id=movies[0].movie_id) }}
+                                </div>
+                                {% endif %}
+                        <div class="col-md-2">
+                        </div>
+                        <div class="col-md-2">
+                        </div>
+                        <div class="col-md-2">
+                        </div>
+                        <div class="col-md-4">
+                        </div>
+                        <div class="col-md-1">
+                        </div>
+                    </div>
+                    <div class="row inputcomments"> 
+                                <div class="col-md-2">
+                                    
+                                </div>
+
+                                <div class="col-md-7 comment-form">
+                                            {{ wtf.quick_form(form) }}
+                                </div>
+                                <div class="col-md-3">
+                                    
+                                </div>
+                    </div>
+
+
+
+            </div>
             
-                <div class="row" class="shoucang">
-                        <div class="col-md-2 text-center" >
-                    {% if flag==1 %}
-                    <a href="{{ url_for('.collect', id = id) }}" class="btn btn-primary">collect</a>
-                    {% endif %}
-                    {% if flag == 0 %}
-                    <a href="{{ url_for('.uncollect', id = id) }}" class="btn btn-default">Uncollect</a>
-                    {% endif %}
-                        </div>
-                        <div class="col-md-2">
-                                
-                        </div>
-                        <div class="col-md-2">
-                            
-                        </div>
-                        <div class="col-md-2">
-                            
-                        </div>
-                        <div class="col-md-2">
-                            
-                        </div>
-                        <div class="col-md-2">
-                            
-                        </div>
-
-                </div>
-            </div>
-            <div class="comment-form">
-                {{ wtf.quick_form(form) }}
-            </div>
-            <hr>
-            {% include '_comments.html' %}
-
-            <div class="row" class="fenye">
-                <!--分页-->
-                        {% if pagination %}
-                        <div class="pagination">
-                               {{ macros.pagination_widget(pagination, '.moviepage', fragment='#comments', id=movies[0].movie_id) }}
-                        </div>
-                        {% endif %}
-                <div class="col-md-2">
-                </div>
-                <div class="col-md-2">
-                </div>
-                <div class="col-md-2">
-                </div>
-                <div class="col-md-4">
-                </div>
-                <div class="col-md-1">
-                </div>
-            </div>
         </div>
     </div>
     {{ super() }}

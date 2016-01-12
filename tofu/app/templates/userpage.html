@@ -12,72 +12,77 @@
 
 {% block page_content %}
 <div class="row">
-    <br><br>
-    <br><br>
     <div class="col-md-9">
         <div class="panel">
             <div class="panel-body">
                 <div class="userinfo">
-                    <div class="row">
-                        <div class="col-md-1">
-                            <a href="#">
-                                <img src="http://img3.doubanio.com/icon/user_normal.jpg">
-                            </a>
+                        <div class="row">
+                                <div class="col-md-2">
+                                    <a href="#">
+                                        <img src="http://img3.doubanio.com/icon/user_normal.jpg" style="width:100%">
+                                    </a>
+                                </div>
+                                <div class="col-md-10">
+                                    <h2 style="padding-top:20px;">
+                                        {{  user.username }}
+                                    </h2>
+                                </div>
                         </div>
-                        <div class="col-md-11">
-                            <h2>
-                                {{  user.username }}
-                            </h2>
-                        </div>
-                    </div>
                 </div>
                 <hr>
                 <div class="usershoucang">
-                    <h2>
-                        Mycollect
-                    </h2>
-                    <br>
-                    <div class="row">
-                    {% for moviecollect in moviecollects %}
-                        <div class="col-md-2">
-                            <a href="{{ url_for('.moviepage',id=moviecollect.collector.movie_id) }}">
-                                <img src="{{moviecollect.collector.image_url}}" onload="loadImg(this)" style="width: 100%; " rel="v:image">
-                                <p>
-                                    {{ moviecollect.collector.name }}
-                                </p>
-                            </a>
-                        </div>
-                        {% endfor %} 
-                    </div>
-            {% if pagination %}
-            <div class="pagination">
-                {{ macros.pagination_widget(pagination, 'main.user',username) }}
-            </div>
-            {% endif %}                     
+                            <h2>
+                                我的收藏
+                            </h2>
+                            <br>
+                            <div class="row">
+                            {% for moviecollect in moviecollects %}
+                                <div class="col-md-2 text-center">
+                                    <a href="{{ url_for('.moviepage',id=moviecollect.collector.movie_id) }}" >
+                                        <img src="{{moviecollect.collector.image_url}}" onload="loadImg(this)" style="width: 100%; " rel="v:image">
+                                        <p>
+                                            {{ moviecollect.collector.name }}
+                                        </p>
+                                    </a>
+                                </div>
+                                {% endfor %} 
+                            </div>
+                            {% if pagination %}
+                            <div class="pagination">
+                                 {{ macros.pagination_widget(pagination, 'main.user',username) }}
+                            </div>
+                            {% endif %}                     
                 </div>
                 <hr>
-        <h2>MyComments:</h2>
-
-    <ul class="comments">
-        {% for comment in user.comments %}
-        <li class="comment">
-            <div class="comment-thumbnail">
-                <a href="{{ url_for('.user', key=comment.author.username) }}">
-                     <img class="img-rounded profile-thumbnail" src="../static/image/FZL.jpg" height="50px">
-                </a>
-            </div>
-        <div class="comment-content">
-            <div class="comment-date navbar-right">{{ moment(comment.timestamp).fromNow() }}</div>
-            <div class="comment-author"><a href="{{ url_for('.user', key=comment.author.username) }}">{{ comment.author.username }}</a></div>
-            <div class="comment-body">
-                    {{ comment.body }}
-            </div>
-        </div>
-        </li>
-        <hr>
-        {% endfor %}
-    </ul>
-
+                <div class="mypinglun">
+                         <h3 style="padding-left:10px; background-color:#F0F3F5">my...</h3> 
+                         <br> 
+                         <div class="everycomments">
+                                      {% for comment in user.comments %}
+                                                   <div class="row">
+                                                                <div class="col-md-2 text-center">
+                                                                            <a href="{{ url_for('.user', key=comment.author.username) }}">
+                                                                                         <img class="img-rounded profile-thumbnail" src="../static/image/FZL.jpg" width="60%" >
+                                                                            </a>
+                                                                            <div class="comment-author">
+                                                                                        <a href="{{ url_for('.user', key=comment.author.username) }}" style="color:#37a; font-size:18px;">{{ comment.author.username }}</a>
+                                                                             </div>
+                                                                </div>
+                                                                <div class="col-md-8" style="padding-top:12px;">
+                                                                             <div class="comment-body" style="font-size:18px; color:#555;">
+                                                                                         {{ comment.body }}
+                                                                             </div>
+                                                                             <div class="comment-date">
+                                                                                         {{ moment(comment.timestamp).fromNow() }}
+                                                                             </div>
+                                                                </div>
+                                                                <div class="col-md-2">         
+                                                                </div>
+                                                </div>
+                                      <hr>
+                                      {% endfor %}
+                         </div>
+                </div>
             </div>
         </div>
     </div>

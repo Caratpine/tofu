@@ -86,13 +86,14 @@ def user(key):
 
 @main.route('/')
 def index():
-    movies = Movie.query.order_by(Movie.star.desc()).limit(30)
+    rate = 67;
+    movies = Movie.query.order_by(Movie.star.desc()).limit(rate)
     movie = []
     mos = []
     for i in range(4):
-        movie.append(movies[30-i])
+        movie.append(movies[rate-i])
     for i in range(4,8):
-        mos.append(movies[30-i])    
+        mos.append(movies[rate-i])    
     return render_template('index.html',movies = movie,mos = mos)
 
 @main.route('/tags/<int:id>')

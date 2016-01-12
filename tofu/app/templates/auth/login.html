@@ -13,14 +13,23 @@
     <link href="../static/css/styles.php" rel="stylesheet">
 {% endblock %}
 {% block page_content %}
-<div class="page-header">
-    <h1>登录</h1>
-</div>
-<div class="col-md-4">
-    {{ wtf.quick_form(form) }}
-    <p>
-    	New User?
-    	<a href="{{url_for('auth.register')}}">Click here to register</a>
-    </p>
+<div class="denglukuang" style="width:360px; padding:30px; margin:50px auto; 
+background:#f2fcff;
+border:4px solid ;
+border-radius:30px;
+-moz-border-top-colors:#858 #858 #858 #858 #858 #858;
+-moz-border-right-colors:#858 #858 #858 #858 #858 #858;
+-moz-border-bottom-colors:#858 #858 #858 #858 #858 #858;
+-moz-border-left-colors:#858 #858 #858 #858 #858 #858">
+                <div class="">
+                        <h1 style="">登录</h1>    
+                        </div>
+                    <div class="">
+                    {{ wtf.quick_form(form) }}
+                    <p>
+                        New User?
+                        <a href="{{url_for('auth.register')}}">Click here to register</a>
+                    </p>
+                    </div>
 </div>
 {% endblock %}

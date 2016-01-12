@@ -106,23 +106,15 @@ footer {
 
 #masthead {
     height:150px;
-    background-color:#FFE4E1;
-    color:#fefeff;
+    background-color:#cdb;
 }
 
 #masthead h1 {
-    font-size: 55px;
-    line-height: 1;
-    color:#fefeff;
-    margin-top:50px;
-}
-
-#masthead .well {
-    margin-top:31px;
-    background-color:#607D8B;
-    border-color:#607D8B;
-    color:#efefff;
-    min-height:127px;
+    display:inline-block;
+    margin:auto;
+    height:150px;
+    line-height:150px;
+    background-color:#4a7;
 }
 
 
@@ -133,50 +125,12 @@ footer {
 #masthead .container .row .col-md-4{
     position:relative;
     height:100%;
-    background-color: #a7c;
-    padding-left:100px;
+    background-color: #888;
 }
 #masthead .container .row .col-md-8{
     height:100%;
     background-color: #11185c;
 }
-.demaxiya{
-    position:relative;
-    float:right;
-    margin-right:50px;
-    margin-top:70px;
-    position: relative;
-    display: inline-block;
-    zoom: 1;
-    vertical-align: middle;
-    width: 340px;
-    height: 60px;
-    border: 1px solid #c3c3c3;
-}
-.demaxiya .inp input {
-    width: 228px;
-    border: 0;
-    font-size: 13px;
-    height: 58px;
-    padding-left:15px;
-}
-.demaxiya .bn input{
-        display: inline-block;
-        float:right;
-        padding:4px;
-        font-size:20px;
-        width: 110px;
-        height: 58px;
-        cursor: pointer;
-        background-color:#315431;
-}
-
-
-
-
-
-
-
 
 #topPanel {
     padding-top:0px;
@@ -354,4 +308,6 @@ a,a:hover {
 	font-weight: 200;
 }
 
-
+.mama{
+    margin-top:20px;
+}
