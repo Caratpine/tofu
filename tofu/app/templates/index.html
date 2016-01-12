@@ -47,7 +47,7 @@
                     {% for movie in movies %}
                         <div class="col-md-3 text-center">
                             <!--左侧照片-->
-                            <a href="http://www.baidu.com">
+                            <a href="{{ url_for('.moviepage',id = movie.movie_id) }}">
                                 <img src="{{ movie.image_url }}"
                                 alt="八恶人" data-x="8100" data-y="12000" onload="loadImg(this)" style="width: 100%; height:50%;opacity: 1;">
                                 <p>
@@ -65,7 +65,7 @@
                     {% for m in mos %}
                         <div class="col-md-3 text-center">
                             <!--左侧照片-->
-                            <a href="http://www.baidu.com">
+                            <a href="{{ url_for('.moviepage',id = m.movie_id) }}">
                                 <img src="{{ m.image_url }}"
                                 alt="少年派的奇幻漂流" data-x="3375" data-y="5000" onload="loadImg(this)" style="width: 100%;height:50%; opacity: 1;">
                                 <p>
