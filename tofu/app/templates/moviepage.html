@@ -20,16 +20,16 @@
                     <div class="row" class="movieinfo">
                         <div class="col-md-3 col-sm-3 text-center">
                             <!--左侧照片-->
-                            <a class="nbgnbg" href="http://movie.douban.com/subject/25823132/photos?type=R">
+                            <a class="nbgnbg" href="#">
                                 <img src="{{ Info.get('image_url') }}" onload="loadImg(this)"
                                 style="width: 100%; " rel="v:image">
                             </a>
                             <div class="mama text-center">
                                         {% if flag==1 %}
-                                        <a href="{{ url_for('.collect', id = id) }}" class="btn btn-primary">collect</a>
+                                        <a href="{{ url_for('.collect', id = id) }}" class="btn btn-primary" style="font-size:20px; width:80%;">收藏</a>
                                         {% endif %}
                                         {% if flag == 0 %}
-                                        <a href="{{ url_for('.uncollect', id = id) }}" class="btn btn-default">Uncollect</a>
+                                        <a href="{{ url_for('.uncollect', id = id) }}" class="btn btn-default" style="font-size:20px; width:80%;">取消收藏</a>
                                         {% endif %}
                             </div>
                         </div>

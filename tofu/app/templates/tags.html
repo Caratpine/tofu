@@ -39,7 +39,7 @@
                 <div class="row">
                     <div class="col-md-2 col-sm-3 text-center">
                         <!--左侧照片-->
-                        <a class="nbgnbg" href="http://movie.douban.com/subject/25823132/photos?type=R"
+                        <a class="nbgnbg" href="{{  url_for('main.moviepage',id=movietag.movies.movie_id) }}"
                         title="点击看更多海报">
                             <img src="{{ movietag.movies.image_url }}" title="点击看更多海报" onload="loadImg(this)"
                             style="width: 100%; " alt="암살" rel="v:image">
