@@ -56,26 +56,9 @@
             {% endif %}                     
                 </div>
                 <hr>
-                <div class="usercomment">
-                    <h2>
-                        Mycomment
-                    </h2>
-                    <br>
-            {% for comment in user.comments %}
-                    <div class="author">
-                        <span class="">
-                            {{ comment.timestamp }}
-                        </span>
-                        <a class=" " href="http://www.douban.com/people/134262041/">
-                            {{ user.username }}
-                        </a>
-                    </div>
-                    <p class="">
-                    {{ comment.body }}
-                    </p>
-                    {% endfor %}
 
-                </div>
+            {% include '_comments.html' %}
+
             </div>
         </div>
     </div>
