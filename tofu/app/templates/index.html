@@ -26,9 +26,9 @@
                         </div>
                         <div class="col-md-8">
                             <div class="form-group">
-                                <form class="main-search-area" action="/" method="GET">
-                                    <input type="text" name="w" class="form-control" placeholder="书籍、电影" style="font-size: 18px">
-                                    <button type="submit" class="btn btn-warning" style="font-size: 20px;">
+                                <form class="main-search-area">
+                                    <input type="text" id="search_content" name="w" class="form-control" placeholder="书籍、电影" style="font-size: 18px">
+                                    <button type="submit" id="search" class="btn btn-warning" style="font-size: 20px;">
                                         豆腐一下
                                     </button>
                                 </form>
@@ -181,4 +181,29 @@
 {% block scripts %}
     {{ super() }}
     <script src="../static/js/xinzhi.js"></script>
+    <script type="text/javascript">
+        var $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+
+        $(function() {
+            var submit_form = function(e) {
+                $.getJSON($SCRIPT_ROOT + '/search', {
+                    text: $("#search_content").val()
+                }, function(data) {
+                    console.log(data.result)
+                    window.location.href=$SCRIPT_ROOT + '/movies/' + data.result;
+                });
+                return false;
+            };
+
+            $("#search").bind("click", submit_form);
+
+            $("#search_content").bind('keydown', function(e) {
+                if (e.keyCode == 13) {
+                    submit_form(e)
+                }
+            });
+        });
+    </script>
 {% endblock %}
+
+

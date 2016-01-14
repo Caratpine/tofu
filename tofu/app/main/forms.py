@@ -13,4 +13,4 @@ class CommentForm(Form):
     submit = SubmitField('Submit')
 class SearchForm(Form):
 	key = TextField('',validators=[Required()])
-	submit = SubmitField('Search')	
+	submit = SubmitField('Search')

@@ -53,10 +53,10 @@
                                                 </span>
                                                 :
                                                 {% for directors in Info.get('directors') %}
-                                                 <span class="attrs"> 
+                                                 <span class="attrs">
                                                     {{ directors }}
-                                                  </span>  
-                                                {% endfor %}                                            
+                                                  </span>
+                                                {% endfor %}
                                                 </span>
                                             <br>
                                                 <span class="pl">
@@ -68,7 +68,7 @@
                                                     <span>
                                                         {{cast}}/
                                                     </span>
-                                                 {% endfor %}   
+                                                 {% endfor %}
                                             </span>
                                             <br>
                                              <span class="pl">
@@ -87,7 +87,7 @@
                                             <span property="v:initialReleaseDate" content="2015-12-07(洛杉矶首映)">
                                                 {{ Info.year }}
                                             </span>
-                                            <br>                                       
+                                            <br>
                                             <span class="pl">
                                                 制片国家/地区:
                                             </span>
@@ -111,8 +111,8 @@
 
                     <br>
                     <div class="showcoments" >
-                                       <h3 style="padding-left:10px; background-color:#F0F3F5">大家的回应...</h3> 
-                                       <br>  
+                                       <h3 style="padding-left:10px; background-color:#F0F3F5">大家的回应...</h3>
+                                       <br>
                                               <div class="comments">
                                                         {% for comment in comments %}
                                                          <div class="row">
@@ -134,7 +134,7 @@
                                                                                             {{ moment(comment.timestamp).fromNow() }}
                                                                                     </div>
                                                                         </div>
-                                                                        <div class="col-md-2">         
+                                                                        <div class="col-md-2">
                                                                         </div>
                                                         </div>
                                                         <hr>
@@ -159,23 +159,23 @@
                         <div class="col-md-1">
                         </div>
                     </div>
-                    <div class="row inputcomments"> 
+                    <div class="row inputcomments">
                                 <div class="col-md-2">
-                                    
+
                                 </div>
 
                                 <div class="col-md-7 comment-form">
                                             {{ wtf.quick_form(form) }}
                                 </div>
                                 <div class="col-md-3">
-                                    
+
                                 </div>
                     </div>
 
 
 
             </div>
-            
+
         </div>
     </div>
     {{ super() }}
